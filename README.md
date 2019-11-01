@@ -3,11 +3,11 @@
 </h1>
 
 <p align = "center">
-  <a href="#clipboard-especificação-de-requisitos">Especificacao de requisitos</a>
-  <a href="#-DER">DER</a>
+  <a href="#memo-especificação-de-requisitos">Especificacao de requisitos</a>&nbsp;|&nbsp;
+  <a href="#bar_chart-der">DER</a>
 </p>
 
-## :clipboard: Especificação de requisitos
+## :memo: Especificação de requisitos
 Um colecionador de música clássica resolveu utilizar a tecnologia de banco de dados
 para implementar uma versão personalizada do Spotify, o **SpotPer**. Para tanto,
 resolveu contratá-los para realizar o projeto e a implementação do banco de dados do
@@ -54,5 +54,5 @@ Uma playlist terá como propriedades:
 e o número de vezes que foi tocada.
   
 
-## DER
+## :bar_chart: DER
 ![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER/DER.jpg)
