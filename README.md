@@ -3,7 +3,7 @@ Repository dedicated to database fundamentals discipline
 
 ## Especificação de requisitos
 Um colecionador de música clássica resolveu utilizar a tecnologia de banco de dados
-para implementar uma versão personalizada do Spotify, o SpotPer. Para tanto,
+para implementar uma versão personalizada do Spotify, o **SpotPer**. Para tanto,
 resolveu contratá-los para realizar o projeto e a implementação do banco de dados do
 SpotPer, o BDSpotPer. Após a análise de requisitos, obtida através de entrevistas com o
 usuário, identificamos as seguintes características:
