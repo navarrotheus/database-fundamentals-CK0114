@@ -3,8 +3,8 @@
 </h1>
 
 <p align = "center">
-   <a href="-especificação-de-requisitos">Especificação de requisitos</a> |
-   <a href="-der">DER</a>
+   <a href="#-especificação-de-requisitos">Especificação de requisitos</a> |
+   <a href="#-der">DER</a>
 </p>
 
 ## Especificação de requisitos
