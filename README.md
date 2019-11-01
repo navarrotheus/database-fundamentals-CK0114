@@ -3,11 +3,11 @@
 </h1>
 
 <p align = "center">
-   <a href="#-especificação-de-requisitos">Especificação de requisitos</a> |
-   <a href="#-der">DER</a>
+  <a href="#rocket-especificacao-de-requisitos">Especificacao de requisitos</a>
+  <a href="#-DER">DER</a>
 </p>
 
-## Especificação de requisitos
+## :rocket: Especificacao de requisitos
 Um colecionador de música clássica resolveu utilizar a tecnologia de banco de dados
 para implementar uma versão personalizada do Spotify, o **SpotPer**. Para tanto,
 resolveu contratá-los para realizar o projeto e a implementação do banco de dados do
