@@ -1,5 +1,11 @@
 # database-fundamentals-CK0114
-Repository dedicated to database fundamentals discipline
+<h1 align="center">
+   SpotPer
+</h1>
+
+<p align = "center">
+   <a href="-especificação-de-requisitos">Especificação de requisitos</a>
+</p>
 
 ## Especificação de requisitos
 Um colecionador de música clássica resolveu utilizar a tecnologia de banco de dados
