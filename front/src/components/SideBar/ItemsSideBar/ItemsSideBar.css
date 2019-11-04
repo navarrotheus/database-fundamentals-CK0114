@@ -1,0 +1,48 @@
+a {
+  text-decoration: none;
+}
+
+.isb-container{
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.isb-logo {
+  width: 150px;
+  margin: 30px;
+  margin-top: 10px;
+  margin-right: 70px;
+}
+
+.isb-itens{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.isb-icon {
+  width: 35px;
+  height: 35px;
+  margin: 0px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: 30px;
+  transition: .5s ease;
+}
+
+.isb-icon-nome{
+  color: white;
+  margin: 0px;
+  margin-top: 15px;
+  transition: .5s ease;
+}
+
+.isb-itens:hover .isb-icon{
+  width: 37px;
+  height: 37px;
+}
+
+.isb-itens:hover, .isb-itens:hover a{
+  background-color: #533a3a;
+  font-weight: 600;
+}
