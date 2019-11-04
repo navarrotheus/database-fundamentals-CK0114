@@ -55,4 +55,4 @@ e o número de vezes que foi tocada.
   
 
 ## :bar_chart: DER
-![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER/DER.jpg)
+![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
