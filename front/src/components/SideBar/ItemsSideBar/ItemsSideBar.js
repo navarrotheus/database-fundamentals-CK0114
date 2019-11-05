@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+
 import "./ItemsSideBar.css"
 
 import Logo from "../../../images/logo.png"
@@ -15,21 +17,21 @@ export default class ItemsSideBar extends React.Component {
         
         <section className="isb-itens">
           <img src={Home} className="isb-icon" />
-          <a href="./">
+          <Link to="./Home">
             <p className="isb-icon-nome"> Home </p>
-          </a>
+          </Link>
         </section>
         <section className="isb-itens">
           <img src={Album} className="isb-icon" />
-          <a href="./">
+          <Link to="./Album">
             <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </a>
+          </Link>
         </section>
         <section className="isb-itens">
           <img src={Playlist} className="isb-icon" />
-          <a href="./">
+          <Link to="./Playlist">
             <p className="isb-icon-nome"> Playlists </p>
-          </a>
+          </Link>
         </section>
       </section>
     )

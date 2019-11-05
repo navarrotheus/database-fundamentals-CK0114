@@ -1,0 +1,13 @@
+.sb-container {
+  float: left;
+  position: fixed;
+  width: 210px;
+  height: 100%;
+  background-color: #131010;
+}
+
+.site-container {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+}
+

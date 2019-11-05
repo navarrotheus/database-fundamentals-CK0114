@@ -1,10 +1,27 @@
 .card-play-list {
-    width: 120px;
+    width: 150px;
 }
 
-.card-play-list p{
+.plc-list-name{
     margin: 0px;
     text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.plc-list-name a{
+    color: rgb(255, 255, 255);
+
+}
+
+.plc-author-name{
+    margin: 0px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 15px;
+}
+.plc-author-name a {
+    color: white;    
 }
 
 .plc-image-card {
@@ -15,8 +32,8 @@
     margin: 0px;
     margin-right: auto;
     margin-left: auto; 
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     opacity: 1;
     display: block;
     transition: .5s ease;
@@ -40,7 +57,8 @@
 }
 
 .plc-image-card:hover .plc-image {
-    opacity: .4;
+    opacity: 0.7;
+    filter: brightness(50%)
   }
   
 .plc-image-card:hover .plc-play {

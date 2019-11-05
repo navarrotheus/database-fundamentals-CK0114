@@ -1,4 +1,3 @@
-.teste {
-    width: 80%;
-    margin: auto;
+.alinhar {
+  grid-column-start: 2;
 }

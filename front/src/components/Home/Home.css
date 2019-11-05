@@ -1,0 +1,34 @@
+body {
+  background-color: #282828;
+}
+
+.home-titulo-container {
+  margin: 0px;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.home-titulo {
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0px;
+}
+
+.home-titulo-desc {
+  margin: 0px;
+  font-size: 20px;
+  color: rgb(224, 213, 213);
+  font-weight: 300;
+}
+
+.home-cards-container {
+  margin-top: 20px;
+  display: flex;
+}
+
+.home-pl {
+  margin-right: 25px;
+}

@@ -5,6 +5,7 @@ import Image from "../../images/default.jpg"
 import Music from "../../images/MusicBar/music-icon.png"
 import Play from "../../images/MusicBar/play-icon-white.png"
 import Config from "../../images/MusicBar/config-icon.png"
+import Logo from "../../images/logo.png"
 
 
 
