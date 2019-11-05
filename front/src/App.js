@@ -6,15 +6,18 @@ import './App.css';
 import PlayListCard from "./components/PlayListCard/PlayListCard"
 import MusicBar from "./components/MusicBar/MusicBar"
 import SideBar from "./components/SideBar/SideBar"
-import NavBar from "./components/NavBar/NavBar"
+import BottonBar from "./components/BottonBar/BottonBar"
 import Router from "./components/Router/Router"
 
 function App() {
   return (
+    <div className="site-container">
       <BrowserRouter>
-          <SideBar/>
-           
+        <SideBar/>
       </BrowserRouter>
+      <BottonBar/>      
+    </div>
+      
   );
 }
 

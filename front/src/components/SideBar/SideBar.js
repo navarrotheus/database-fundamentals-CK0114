@@ -1,19 +1,19 @@
 import React from 'react';
 import "./SideBar.css"
 
-import Content from "./ItemsSideBar/ItemsSideBar"
+import ItemsSideBar from "./ItemsSideBar/ItemsSideBar"
 import Image from "../../images/default.jpg"
 import Router from "../Router/Router"
-
 
 export default class SideBar extends React.Component {
   render() {
     return (
-      <div className="site-container">
+      <div className="side-container">
         <section className="sb-container">
-          <Content/>
+          <ItemsSideBar/>
         </section>
         <Router/>
+
       </div>
     );
   }

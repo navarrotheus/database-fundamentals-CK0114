@@ -2,7 +2,7 @@ import React from 'react';
 import "./PlayListCard.css"
 
 import Image from "../../images/default.jpg"
-import PlayButton from "../../images/PlayListCard/play-button-white.png"
+import PlayButton from "../../images/play-arrow-white.png"
 
 export default class PlayListCard extends React.Component { 
 

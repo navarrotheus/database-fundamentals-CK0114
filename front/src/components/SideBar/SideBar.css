@@ -1,12 +1,12 @@
 .sb-container {
   float: left;
   position: fixed;
-  width: 210px;
+  width: 215px;
   height: 100%;
   background-color: #131010;
 }
 
-.site-container {
+.side-container {
   display: grid;
   grid-template-columns: 210px 1fr;
 }

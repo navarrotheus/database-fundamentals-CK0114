@@ -28,6 +28,66 @@ export default class ItemsSideBar extends React.Component {
           </Link>
         </section>
         <section className="isb-itens">
+          <img src={Album} className="isb-icon" />
+          <Link to="./Album">
+            <p className="isb-icon-nome"> Sua Biblioteca </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Album} className="isb-icon" />
+          <Link to="./Album">
+            <p className="isb-icon-nome"> Sua Biblioteca </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Album} className="isb-icon" />
+          <Link to="./Album">
+            <p className="isb-icon-nome"> Sua Biblioteca </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Album} className="isb-icon" />
+          <Link to="./Album">
+            <p className="isb-icon-nome"> Sua Biblioteca </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
+          <img src={Playlist} className="isb-icon" />
+          <Link to="./Playlist">
+            <p className="isb-icon-nome"> Playlists </p>
+          </Link>
+        </section>
+        <section className="isb-itens">
           <img src={Playlist} className="isb-icon" />
           <Link to="./Playlist">
             <p className="isb-icon-nome"> Playlists </p>

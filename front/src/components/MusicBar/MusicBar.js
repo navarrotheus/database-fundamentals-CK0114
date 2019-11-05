@@ -3,7 +3,7 @@ import "./MusicBar.css"
 
 import Image from "../../images/default.jpg"
 import Music from "../../images/MusicBar/music-icon.png"
-import Play from "../../images/MusicBar/play-icon-white.png"
+import Play from "../../images/play-arrow-white.png"
 import Config from "../../images/MusicBar/config-icon.png"
 import Logo from "../../images/logo.png"
 
@@ -12,7 +12,7 @@ import Logo from "../../images/logo.png"
 export default class MusicBar extends React.Component { 
   render() {
     return(
-      <div>
+      <div className="alinhar">
         <section className="mb-bar">
           <a href="./">
             <div className="mb-head">

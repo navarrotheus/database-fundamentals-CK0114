@@ -5,6 +5,8 @@ a {
 .isb-container{
   display: grid;
   grid-template-columns: auto;
+  overflow: auto;
+  height: inherit;
 }
 
 .isb-logo {
