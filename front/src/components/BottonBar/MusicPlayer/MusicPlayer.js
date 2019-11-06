@@ -22,15 +22,17 @@ function log(value) {
 const style = { width: 400, margin: 0 };
 
 export default class MusicPlayer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       min: 0,
-      max: 20,
+      max: 0,
       step: 1,
-      value: this.props.posAtual,
-    };
+      value: 1,
+      tempoAtual: "", 
+      tempoMax: "",
+      isPaused: true,
+      iniciou: false,
   }
+
   onSliderChange = (value) => {
     log(value);
     this.setState({value});
@@ -51,54 +53,91 @@ export default class MusicPlayer extends React.Component {
     });
   }
 
+  componentDidMount = () => {
+    var audio = document.getElementsByClassName("audio-player")
+    this.setState({value: audio.item(0).currentTime})
+    console.log(audio.item(0).duration)
+
+  }
+  
+  playAudio = () => {
+    let audio = document.getElementsByClassName("audio-player")
+    audio.item(0).play()
+    audio.item(0).addEventListener("play", () => {
+      this.setState({max: audio.item(0).duration})
+      this.setState({tempoMax: new Date(this.state.max * 1000).toISOString().substr(14, 5)})
+      this.setState({isPaused: false})
+      console.log(this.state)
+      setInterval(() => {
+        this.setState({value: audio.item(0).currentTime})
+        this.setState({tempoAtual: new Date(this.state.value * 1000).toISOString().substr(14, 5)})
+      }, 1000);
+    })
+    
+  }
+
+  pauseAudio = () => {
+    var audio = document.getElementsByClassName("audio-player")
+    audio.item(0).pause();
+    this.setState({isPaused: true});
+  }
+
+  loopAudio = () => {
+    var audio = document.getElementsByClassName("audio-player")
+    audio.item(0).setAttribute("loop", true);
+    console.log(audio)
+  }
+
+  nextAudio = () => {
+    var audio = document.getElementsByClassName("audio-player")
+  }
+
   render(){
     //Mapeia os botões
-    var audio = document.getElementsByClassName("test")
     var pauseBtn = document.getElementsByClassName('pauseBtn');
     var playBtn = document.getElementsByClassName('playBtn');
     let nextBtn = document.getElementsByClassName('nextBtn');
     let prevBtn = document.getElementsByClassName('preBtn');
 
-    const teste = audio;
+    let mainButton;
 
-    var playAudio = function(){
-      console.log(audio)
-      audio.item(0).play();
-      playBtn.item(0).style.display = "none";
-      pauseBtn.item(0).style.display = "block";
+    if(!this.state.isPaused){
+      mainButton = <a className="pauseBtn" onClick={this.pauseAudio}>
+        <img className="mp-musica-play-controle-icons" src={PausetIcon} />
+      </a> 
     }
 
-    var pauseAudio = function(){
-      audio.item(0).pause();
-      playBtn.item(0).style.display = "block";
-      pauseBtn.item(0).style.display = "none";
+    if(this.state.isPaused){
+      mainButton = <a className="playBtn" onClick={this.playAudio}>
+                    <img className="mp-musica-play-controle-icons" src={PlayIcon} />
+                  </a>
     }
-   
+
     return(
       <div>
-        {console.log(audio)}
-        {console.log(teste)}
         <div className="bb-musica-play-controle">
           <div className="bb-controler">
             <img className="shuffleBtn mp-musica-play-controle-icons" src={ShuffleIcon} />
             <img className="prevBtn mp-musica-play-controle-icons" src={PrevIcon} />
-            <a className="playBtn" onClick={playAudio}>
-              <img className="mp-musica-play-controle-icons" src={PlayIcon} />
-            </a>
-            <a onClick={pauseAudio}>
-              <img className="mp-musica-play-controle-icons" src={PausetIcon} />
-            </a>
+            {mainButton}            
             <img className="nextBtn mp-musica-play-controle-icons" src={NextIcon} />
-            <img className="repeatBtn mp-musica-play-controle-icons" src={RepeatIcon} />
+            <a onClick={this.loopAudio}>
+              <img className="repeatBtn mp-musica-play-controle-icons" src={RepeatIcon} />
+            </a>
           </div>
-          <div style={style}>
-            <Slider value={this.state.value} min={this.state.min} max={this.state.max} step={this.state.step}
-              onChange={this.onSliderChange}
-            />
+          <div className="bb-slider-bar" style={style}>
+            <p className="bb-tempo">{this.state.tempoAtual}</p>
+            <div>
+              <Slider trackStyle={{ backgroundColor: '#00d95f' }} handleStyle={{borderColor: 'transparent', }}
+                value={this.state.value} min={this.state.min} max={this.state.max} step={this.state.step}
+                onChange={this.onSliderChange}
+              />
+            </div>
+            <p className="bb-tempo">{this.state.tempoMax}</p>
           </div>
         </div>
 
-        <audio ref={this.imageRef} className="test">
+        <audio ref={this.imageRef} className="audio-player">
           <source src={Music} />
         </audio>
       </div>

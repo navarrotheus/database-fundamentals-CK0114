@@ -1,7 +1,3 @@
-.pauseBtn {
-  display: none;
-}
-
 .bb-musica-play-controle{
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -16,4 +12,16 @@
 }
 .bb-controler{
   margin: 0px;
+}
+
+.bb-slider-bar{
+  display: grid;
+  grid-template-columns: 60px auto 60px;
+}
+
+.bb-tempo{
+  margin: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: white;
 }
