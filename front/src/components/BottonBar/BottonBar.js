@@ -9,6 +9,9 @@ import PausetIcon from "../../images/BottonBar/pause-icon.svg"
 import RepeatIcon from "../../images/BottonBar/repeat-icon.svg"
 import ShuffleIcon from "../../images/BottonBar/shuffle-icon.svg"
 
+import Music from "../../musics/maneva-pisando-descalço.mp3"
+
+import MusicPlayer from "./MusicPlayer/MusicPlayer"
 
 export default class BottonBar extends React.Component {
   render() {
@@ -27,19 +30,10 @@ export default class BottonBar extends React.Component {
           </section>
 
           <section className="bb-musica-play">
-            <div className="bb-musica-play-controle">
-              <img src={ShuffleIcon} />
-              <img src={PrevIcon} />
-              <img src={PausetIcon} />
-              <img src={NextIcon} />
-              <img src={RepeatIcon} />
-            </div>
-            <div>
-              slidebar
-            </div>
+              <MusicPlayer/>
           </section>
           <section>
-            valume
+            teste
           </section>
         </section>
        </div>

@@ -53,19 +53,7 @@
 
 .bb-musica-play{
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-}
-
-.bb-musica-play-controle img {
-  margin: 0px;
-  margin-top:15px;
-  margin-left: 15px;
-  width: 25px;
-}
-
-.bb-musica-play-controle :nth-child(n+2):nth-child(-n+4){
-  margin-top: -10px;
-  width: 30px;
 }

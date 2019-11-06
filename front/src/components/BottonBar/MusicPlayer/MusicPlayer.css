@@ -1,0 +1,19 @@
+.pauseBtn {
+  display: none;
+}
+
+.bb-musica-play-controle{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+.mp-musica-play-controle-icons{
+  margin: 0px;
+  margin-top:15px;
+  margin-left: 15px;
+  width: 25px;
+}
+.bb-controler{
+  margin: 0px;
+}
