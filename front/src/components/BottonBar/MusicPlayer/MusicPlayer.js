@@ -13,6 +13,8 @@ import ShuffleIcon from "../../../images/BottonBar/shuffle-icon.svg"
 import PlayIcon from "../../../images/play-arrow-white.svg"
 
 import Music from "../../../musics/maneva-pisando-descalço.mp3"
+import Music2 from "../../../musics/armandinho-outra-vida.mp3"
+import Music3 from "../../../musics/natiruts-perola-negra.mp3"
 
 
 function log(value) {
@@ -34,8 +36,10 @@ export default class MusicPlayer extends React.Component {
   }
 
   onSliderChange = (value) => {
+    var audio = document.getElementsByClassName("audio-player")
     log(value);
     this.setState({value});
+    audio.item(0).currentTime = this.state.value
   }
   onMinChange = (e) => {
     this.setState({
@@ -56,18 +60,17 @@ export default class MusicPlayer extends React.Component {
   componentDidMount = () => {
     var audio = document.getElementsByClassName("audio-player")
     this.setState({value: audio.item(0).currentTime})
-    console.log(audio.item(0).duration)
-
+    console.log(audio.length)
   }
   
   playAudio = () => {
     let audio = document.getElementsByClassName("audio-player")
+    console.log(audio.item(0))
     audio.item(0).play()
     audio.item(0).addEventListener("play", () => {
       this.setState({max: audio.item(0).duration})
       this.setState({tempoMax: new Date(this.state.max * 1000).toISOString().substr(14, 5)})
       this.setState({isPaused: false})
-      console.log(this.state)
       setInterval(() => {
         this.setState({value: audio.item(0).currentTime})
         this.setState({tempoAtual: new Date(this.state.value * 1000).toISOString().substr(14, 5)})
@@ -85,14 +88,19 @@ export default class MusicPlayer extends React.Component {
   loopAudio = () => {
     var audio = document.getElementsByClassName("audio-player")
     audio.item(0).setAttribute("loop", true);
-    console.log(audio)
   }
 
   nextAudio = () => {
-    var audio = document.getElementsByClassName("audio-player")
+    console.log("Ainda não funcional")
+    //let audio = document.getElementsByClassName("audio-player")
+    //this.setState({faixaAtual: this.state.faixaAtual + 1})
+    //console.log(this.state)
   }
 
   render(){
+
+    const playList = [<source src={Music2} />]
+
     //Mapeia os botões
     var pauseBtn = document.getElementsByClassName('pauseBtn');
     var playBtn = document.getElementsByClassName('playBtn');
@@ -114,31 +122,31 @@ export default class MusicPlayer extends React.Component {
     }
 
     return(
-      <div>
-        <div className="bb-musica-play-controle">
-          <div className="bb-controler">
+      <div className="mp-container">
+        <div className="mp-musica-play-controle">
+          <div className="mp-controler">
             <img className="shuffleBtn mp-musica-play-controle-icons" src={ShuffleIcon} />
             <img className="prevBtn mp-musica-play-controle-icons" src={PrevIcon} />
-            {mainButton}            
+            {mainButton}   
             <img className="nextBtn mp-musica-play-controle-icons" src={NextIcon} />
             <a onClick={this.loopAudio}>
               <img className="repeatBtn mp-musica-play-controle-icons" src={RepeatIcon} />
             </a>
           </div>
-          <div className="bb-slider-bar" style={style}>
-            <p className="bb-tempo">{this.state.tempoAtual}</p>
+          <div className="mp-slider-bar" style={style}>
+            <p className="mp-tempo">{this.state.tempoAtual}</p>
             <div>
               <Slider trackStyle={{ backgroundColor: '#00d95f' }} handleStyle={{borderColor: 'transparent', }}
                 value={this.state.value} min={this.state.min} max={this.state.max} step={this.state.step}
                 onChange={this.onSliderChange}
               />
             </div>
-            <p className="bb-tempo">{this.state.tempoMax}</p>
+            <p className="mp-tempo">{this.state.tempoMax}</p>
           </div>
         </div>
 
         <audio ref={this.imageRef} className="audio-player">
-          <source src={Music} />
+          {playList[0]}
         </audio>
       </div>
     )

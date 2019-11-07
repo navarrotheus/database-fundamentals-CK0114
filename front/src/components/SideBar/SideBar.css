@@ -3,7 +3,7 @@
   position: fixed;
   width: 215px;
   height: 100%;
-  background-color: #131010;
+  background-image: linear-gradient(rgb(24, 4, 16), #050101);
 }
 
 .side-container {

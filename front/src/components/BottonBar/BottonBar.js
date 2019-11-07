@@ -2,6 +2,7 @@ import React from 'react';
 import "./BottonBar.css"
 
 import Image from "../../images/default.jpg"
+import Logo from "../../images/logo.png"
 import HeartIcon from "../../images/BottonBar/heart-icon.svg"
 import NextIcon from "../../images/BottonBar/skip-next-icon.svg"
 import PrevIcon from "../../images/BottonBar/skip-previous-icon.svg"
@@ -28,12 +29,8 @@ export default class BottonBar extends React.Component {
               <img src={HeartIcon} />
             </div>
           </section>
-
           <section className="bb-musica-play">
               <MusicPlayer/>
-          </section>
-          <section>
-            teste
           </section>
         </section>
        </div>

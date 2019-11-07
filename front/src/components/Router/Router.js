@@ -3,6 +3,7 @@ import {Route,Switch} from "react-router-dom";
 import "./Router.css"
 
 import Home from "../Home/Home"
+import Biblioteca from "../Biblioteca/Biblioteca"
 import MusicBar from "../MusicBar/MusicBar"
 
 class Router extends Component {
@@ -10,7 +11,8 @@ class Router extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/Home" component={Home} />			
+        <Route path="/Home" component={Home} />
+        <Route path="/Biblioteca" component={Biblioteca} />
       </Switch>
       
     );

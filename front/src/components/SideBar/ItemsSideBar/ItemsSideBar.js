@@ -14,7 +14,6 @@ export default class ItemsSideBar extends React.Component {
     return(
       <section className="isb-container">
         <img src={Logo} alt="Logo" className="isb-logo" />
-        
         <section className="isb-itens">
           <img src={Home} className="isb-icon" />
           <Link to="./Home">
@@ -23,68 +22,8 @@ export default class ItemsSideBar extends React.Component {
         </section>
         <section className="isb-itens">
           <img src={Album} className="isb-icon" />
-          <Link to="./Album">
+          <Link to="./Biblioteca">
             <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Album} className="isb-icon" />
-          <Link to="./Album">
-            <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Album} className="isb-icon" />
-          <Link to="./Album">
-            <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Album} className="isb-icon" />
-          <Link to="./Album">
-            <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Album} className="isb-icon" />
-          <Link to="./Album">
-            <p className="isb-icon-nome"> Sua Biblioteca </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
-          </Link>
-        </section>
-        <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
-          <Link to="./Playlist">
-            <p className="isb-icon-nome"> Playlists </p>
           </Link>
         </section>
         <section className="isb-itens">

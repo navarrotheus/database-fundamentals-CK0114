@@ -1,6 +1,19 @@
+html, body { 
+  margin:0;
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(rgb(82, 32, 61) ,rgb(37, 12, 27), #0a0404);
+}
+
+a {
+  text-decoration: none;
+}
+
 .site-container{
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
 }
 
 .alinhar {
