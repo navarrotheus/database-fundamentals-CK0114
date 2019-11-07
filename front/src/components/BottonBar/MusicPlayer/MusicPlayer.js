@@ -33,12 +33,13 @@ export default class MusicPlayer extends React.Component {
       tempoMax: "",
       isPaused: true,
       iniciou: false,
+      faixaAtual: 1,
   }
 
   onSliderChange = (value) => {
     var audio = document.getElementsByClassName("audio-player")
-    log(value);
-    this.setState({value});
+    log(value)
+    this.setState({value})
     audio.item(0).currentTime = this.state.value
   }
   onMinChange = (e) => {
@@ -68,15 +69,25 @@ export default class MusicPlayer extends React.Component {
     console.log(audio.item(0))
     audio.item(0).play()
     audio.item(0).addEventListener("play", () => {
-      this.setState({max: audio.item(0).duration})
-      this.setState({tempoMax: new Date(this.state.max * 1000).toISOString().substr(14, 5)})
+      if(!this.state.iniciou){
+        this.setState({max: audio.item(0).duration})
+        this.setState({tempoMax: new Date(this.state.max * 1000).toISOString().substr(14, 5)})
+        this.setState({iniciou: true})
+      }
       this.setState({isPaused: false})
-      setInterval(() => {
-        this.setState({value: audio.item(0).currentTime})
-        this.setState({tempoAtual: new Date(this.state.value * 1000).toISOString().substr(14, 5)})
-      }, 1000);
+      if(this.state.value < this.state.max){
+        setInterval(() => {
+          this.setState({value: audio.item(0).currentTime})
+          this.setState({tempoAtual: new Date(this.state.value * 1000).toISOString().substr(14, 5)})
+        }, 1000);
+      } else {
+        this.setState({max: 0})
+        this.setState({tempoMax: new Date(this.state.max * 1000).toISOString().substr(14, 5)})
+        audio.item(0).currentTime = 0
+        console.log("teste")
+        this.setState({iniciou: false})
+      }
     })
-    
   }
 
   pauseAudio = () => {
@@ -91,15 +102,19 @@ export default class MusicPlayer extends React.Component {
   }
 
   nextAudio = () => {
-    console.log("Ainda não funcional")
-    //let audio = document.getElementsByClassName("audio-player")
-    //this.setState({faixaAtual: this.state.faixaAtual + 1})
-    //console.log(this.state)
+    let audio = document.getElementsByClassName("audio-player")
+    this.pauseAudio()
+    audio.item(0).currentTime = this.state.max
+    this.setState({faixaAtual: this.state.faixaAtual + 1})
+    console.log(this.state)
+    this.setState({value: this.state.max})
+    this.playAudio()
+    
   }
 
   render(){
 
-    const playList = [<source src={Music2} />]
+    const playList = [<source src={Music} />, <source src={Music2} />, <source src={Music3} />]
 
     //Mapeia os botões
     var pauseBtn = document.getElementsByClassName('pauseBtn');
@@ -127,8 +142,10 @@ export default class MusicPlayer extends React.Component {
           <div className="mp-controler">
             <img className="shuffleBtn mp-musica-play-controle-icons" src={ShuffleIcon} />
             <img className="prevBtn mp-musica-play-controle-icons" src={PrevIcon} />
-            {mainButton}   
-            <img className="nextBtn mp-musica-play-controle-icons" src={NextIcon} />
+            {mainButton}  
+            <a onClick={this.nextAudio} >
+              <img className="nextBtn mp-musica-play-controle-icons" src={NextIcon} />
+            </a> 
             <a onClick={this.loopAudio}>
               <img className="repeatBtn mp-musica-play-controle-icons" src={RepeatIcon} />
             </a>
@@ -146,7 +163,7 @@ export default class MusicPlayer extends React.Component {
         </div>
 
         <audio ref={this.imageRef} className="audio-player">
-          {playList[0]}
+          {playList[this.state.faixaAtual]}
         </audio>
       </div>
     )
