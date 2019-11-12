@@ -4,7 +4,7 @@
 
 <p align = "center">
    <a href="#memo-especificação-de-requisitos">Especificacao de requisitos</a>&nbsp;|&nbsp;
-   <a href="#bar_chart-der">DER</a>&nbsp;|&nbsp;
+   <a href="#bar_chart-der">DER</a>&nbsp;&nbsp;|&nbsp;
    <a href="#bar_chart-dr">DR</a>
 </p>
 
