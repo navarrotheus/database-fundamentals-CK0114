@@ -4,7 +4,8 @@
 
 <p align = "center">
    <a href="#memo-especificação-de-requisitos">Especificacao de requisitos</a>&nbsp;|&nbsp;
-   <a href="#bar_chart-der">DER</a>
+   <a href="#bar_chart-der">DER</a>&nbsp;|&nbsp;
+   <a href="#bar_chart-dr">DR</a>
 </p>
 
 ## :memo: Especificação de requisitos
@@ -53,6 +54,9 @@ Uma playlist terá como propriedades:
    1. Para cada faixa de uma playlist, tem-se a data da última vez que foi tocada
 e o número de vezes que foi tocada.
   
+
+## :bar_chart: DER
+![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
 
 ## :bar_chart: DR
 ![DR](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DR.jpg)
