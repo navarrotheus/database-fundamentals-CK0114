@@ -54,5 +54,5 @@ Uma playlist terá como propriedades:
 e o número de vezes que foi tocada.
   
 
-## :bar_chart: DER
-![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
+## :bar_chart: DR
+![DR](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DR.jpg)
