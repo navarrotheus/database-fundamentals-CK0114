@@ -1,21 +1,17 @@
-import Sequelize from 'sequelize';
+require('dotenv/config');
 
-// importacao de models aqui
+const pg = require('pg');
 
-import databaseConfig from '../config/database';
+const client = new pg.Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  define: {
+    underscored: true,
+    underscoredAll: true,
+  },
+});
 
-const models = [];
-
-class Database {
-  constructor() {
-    this.init();
-  }
-
-  init() {
-    this.connection = new Sequelize(databaseConfig);
-
-    models.map(model => model.init(this.connection));
-  }
-}
-
-export default new Database();
+module.exports = client;
