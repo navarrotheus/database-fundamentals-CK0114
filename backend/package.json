@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "migration:createTables": "node src/database/migrations/create-tables.js",
-    "migration:deleteTables": "node src/database/migrations/drop-tables.js",
-    "seed:1": "node src/database/seeds/seed-database-1.js"
+    "createTables": "node src/database/migrations/create-tables.js",
+    "deleteTables": "node src/database/migrations/drop-tables.js",
+    "seedDb": "node src/database/seeds/seed-database-1.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
