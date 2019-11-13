@@ -6,7 +6,7 @@ async function dropTables(){
   await db.query('create schema public;');
   await db.end();
 
-  console.log('Tabelas removidas');
+  console.log('Tabelas removidas com sucesso');
 }
 
 dropTables();
