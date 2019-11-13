@@ -16,7 +16,6 @@ import Music from "../../../musics/maneva-pisando-descalço.mp3"
 import Music2 from "../../../musics/armandinho-outra-vida.mp3"
 import Music3 from "../../../musics/natiruts-perola-negra.mp3"
 
-
 function log(value) {
   console.log(value); 
 }
@@ -33,7 +32,7 @@ export default class MusicPlayer extends React.Component {
       tempoMax: "",
       isPaused: true,
       iniciou: false,
-      faixaAtual: 1,
+      faixaAtual: 0,
   }
 
   onSliderChange = (value) => {
@@ -101,20 +100,25 @@ export default class MusicPlayer extends React.Component {
     audio.item(0).setAttribute("loop", true);
   }
 
+  previousAudio = () => {
+    let audio = document.getElementsByClassName("audio-player")
+    this.setState({faixaAtual: this.state.faixaAtual - 1})
+    audio.item(0).load()
+    audio.item(0).play()
+  }
+
   nextAudio = () => {
     let audio = document.getElementsByClassName("audio-player")
-    this.pauseAudio()
-    audio.item(0).currentTime = this.state.max
     this.setState({faixaAtual: this.state.faixaAtual + 1})
-    console.log(this.state)
-    this.setState({value: this.state.max})
-    this.playAudio()
-    
+    audio.item(0).load()
+    audio.item(0).play()
   }
 
   render(){
 
-    const playList = [<source src={Music} />, <source src={Music2} />, <source src={Music3} />]
+    const playList = [Music, Music2, Music3]
+
+    const currentMusic = playList[this.state.faixaAtual]
 
     //Mapeia os botões
     var pauseBtn = document.getElementsByClassName('pauseBtn');
@@ -141,7 +145,9 @@ export default class MusicPlayer extends React.Component {
         <div className="mp-musica-play-controle">
           <div className="mp-controler">
             <img className="shuffleBtn mp-musica-play-controle-icons" src={ShuffleIcon} />
-            <img className="prevBtn mp-musica-play-controle-icons" src={PrevIcon} />
+            <a onClick={this.previousAudio}>
+              <img className="prevBtn mp-musica-play-controle-icons" src={PrevIcon} />
+            </a>
             {mainButton}  
             <a onClick={this.nextAudio} >
               <img className="nextBtn mp-musica-play-controle-icons" src={NextIcon} />
@@ -163,7 +169,7 @@ export default class MusicPlayer extends React.Component {
         </div>
 
         <audio ref={this.imageRef} className="audio-player">
-          {playList[this.state.faixaAtual]}
+          <source src={currentMusic} />
         </audio>
       </div>
     )
