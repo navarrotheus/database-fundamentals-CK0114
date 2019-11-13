@@ -1,8 +1,11 @@
+.home-container {
+  background-image: linear-gradient(rgb(22, 22, 17) ,rgb(37, 12, 27), #2c0b0b);
+}
+
 .home-titulo-container {
   margin: 0px;
   margin-left: 30px;
   margin-right: 20px;
-  margin-top: 40px;
   margin-bottom: 10px;
 }
 

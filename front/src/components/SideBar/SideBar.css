@@ -8,6 +8,7 @@
 
 .side-container {
   display: grid;
+  padding-bottom: 70px;
   grid-template-columns: 210px 1fr;
 }
 

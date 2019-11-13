@@ -25,6 +25,21 @@ export default class Home extends React.Component {
               </div>
             </div>
           </section>
+          <section className="home-titulo-container">
+            <h3 className="home-titulo">Albúns Recentes</h3>
+            <p className="home-titulo-desc">Não param de tocar nunca</p>
+            <div className="home-cards-container">
+              <div className="home-pl">
+                <PlayListCard />
+              </div>
+              <div className="home-pl">
+                <PlayListCard />
+              </div>
+              <div className="home-pl">
+                <PlayListCard />
+              </div>
+            </div>
+          </section>
 
         </section>
       </div>

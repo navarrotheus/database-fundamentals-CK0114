@@ -1,3 +1,7 @@
+.b-background{
+  background-image: linear-gradient(rgb(36, 33, 36) ,rgb(66, 36, 54), #156835);
+}
+
 .b-container {
   margin-right: 5%;
   margin-left: 30px;
