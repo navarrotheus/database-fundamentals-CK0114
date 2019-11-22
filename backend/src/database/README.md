@@ -2,7 +2,7 @@
 
 create table Gravadora (
     id serial primary key,
-    home varchar(50) not null unique,
+    nome varchar(50) not null unique,
     homepage varchar(50) not null,
     cep integer not null,
     rua varchar(50) not null,
