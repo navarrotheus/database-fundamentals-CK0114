@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "createTablespaces": "node src/database/migrations/create-tablespaces.js",
     "createTables": "node src/database/migrations/create-tables.js",
-    "deleteTables": "node src/database/migrations/drop-tables.js",
+    "create3b": "node src/database/migrations/create-3b.js",
+    "createAll": "node src/database/migrations/create-tables.js && node src/database/migrations/create-3b.js",
+    "deleteSchema": "node src/database/migrations/drop-schema-public.js",
     "seedDb": "node src/database/seeds/seed-database-1.js"
   },
   "dependencies": {
