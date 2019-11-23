@@ -54,7 +54,7 @@ async function createTables(){
     gravadora_id integer not null,
     descricao varchar(100) not null,
     data_gravacao date not null,
-    data_compra date,
+    data_compra date check (date > '2000-01-01'),
     tipo_compra varchar(50) not null,
     preco_compra real,
     foreign key (gravadora_id) references Gravadora (id)
@@ -91,12 +91,22 @@ async function createTables(){
     album_id integer not null,
     composicao_id integer not null,
     descricao varchar(50) not null,
-    tipo_gravacao varchar(50) not null,
+    tipo_gravacao varchar(50) not null check (tipo_gravacao = 'ADD' or tipo_gravacao = 'DDD'),
     tempo_execucao time not null,
     numero_faixa integer not null,
     foreign key (album_id) references Album (id),
     foreign key (composicao_id) references Composicao (id)
   );`);
+
+  await db.query(`create view qnt_faixas as select faixa.album_id, count(*) from album join faixa on album.id = faixa.album_id group by faixa.album_id`);
+
+  await db.query(`create function check_qnt_faixa(faixa_album_id integer) returns bigint as $$
+    begin
+    return (select count from qnt_faixas where album_id = faixa_album_id );
+    end; $$
+  language plpgsql;`);
+
+  await db.query(`alter table faixa add check (check_qnt_faixa(album_id) < 64)`);
 
   console.log('Tabela Faixa criada');
   console.log(`create table Faixa (
@@ -107,7 +117,7 @@ async function createTables(){
     tipo_gravacao varchar(50) not null,
     tempo_execucao time not null,
     numero_faixa integer not null,
-    foreign key (album_id) references Album (id),
+    foreign key (album_id) references Album (id) on delete cascade,
     foreign key (composicao_id) references Composicao (id)
   );`);
 
