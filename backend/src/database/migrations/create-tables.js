@@ -12,25 +12,7 @@ async function createTables() {
     numero integer not null
   );`);
 
-  console.log('Tabela Gravadora criada');
-  console.log(`create table Gravadora (
-    id serial primary key,
-    nome varchar(50) not null unique,
-    homepage varchar(50) not null,
-    cep integer not null,
-    rua varchar(50) not null,
-    numero integer not null
-  );`);
-
   await db.query(`create table Telefone_Gravadora (
-    id serial primary key,
-    gravadora_id integer not null,
-    telefone varchar(50) not null,
-    foreign key (gravadora_id) references Gravadora (id)
-  );`);
-
-  console.log('Tabela Telefone_Gravadora criada');
-  console.log(`create table Telefone_Gravadora (
     id serial primary key,
     gravadora_id integer not null,
     telefone varchar(50) not null,
