@@ -1,6 +1,6 @@
-const db = require('../index');
+const db = require('../client');
 
-async function createTables(){
+async function createTables() {
   await db.connect();
 
   await db.query(`create table Gravadora (
@@ -74,7 +74,7 @@ async function createTables(){
     data_criacao timestamp default current_timestamp,
     tempo_total time
   );`);
-  
+
   await db.query(`create table Composicao (
     id serial primary key,
     tipo varchar(50) not null

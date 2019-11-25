@@ -1,12 +1,14 @@
-const db = require('../index');
+const db = require('../client');
 
-async function create3b(){
+async function create3b() {
   await db.connect();
 
-  await db.query(`create view qnt_faixas as select faixa.album_id, count(*) from album join faixa on album.id = faixa.album_id group by faixa.album_id`);
+  await db.query(
+    `create view qnt_faixas as select faixa.album_id, count(faixa.album_id) from album join faixa on album.id = faixa.album_id group by faixa.album_id`
+  );
 
   console.log('View qnt_faixas criada');
-  console.log(`create view qnt_faixas as select faixa.album_id, count(*)
+  console.log(`create view qnt_faixas as select faixa.album_id, count(faixa.album_id)
     from album join faixa on album.id = faixa.album_id group by faixa.album_id`);
 
   await db.query(`create function check_qnt_faixa(faixa_album_id integer) returns bigint as $$
@@ -22,7 +24,9 @@ async function create3b(){
   end; $$
 language plpgsql;`);
 
-  await db.query(`alter table faixa add check (check_qnt_faixa(album_id) < 64)`);
+  await db.query(
+    `alter table faixa add check (check_qnt_faixa(album_id) < 64)`
+  );
 
   console.log('Check constraint adicionada a tabela Faixa');
   console.log(`alter table faixa add check (check_qnt_faixa(album_id) < 64)`);

@@ -8,7 +8,8 @@
     "dev:debug": "nodemon --inspect src/server.js",
     "createTables": "node src/database/migrations/create-tables.js",
     "create3b": "node src/database/migrations/create-3b.js",
-    "createAll": "node src/database/migrations/create-tables.js && node src/database/migrations/create-3b.js",
+    "create1v": "node src/database/migrations/create-1v.js",
+    "createAll": "node src/database/migrations/create-tables.js && yarn create3b && yarn create1v",
     "deleteSchema": "node src/database/migrations/drop-schema-public.js",
     "seedDb": "node src/database/seeds/seed-database-1.js"
   },
