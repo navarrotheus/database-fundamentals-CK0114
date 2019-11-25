@@ -10,13 +10,6 @@ async function seedTables() {
     ( 'Midas Studios', 'http://midasstudios.com.br/', 74395430, 'Rua SRM 27', 986 ),
     ( 'K9 Studio', 'https://www.k9estudio.com.br/', 59146350, 'Rua Piau', 1418 );`);
 
-  console.log(`insert into Gravadora (nome, homepage, cep, rua, numero) values
-    ( 'Cash Money', 'https://www.cashmoney-records.com/', 49080664, 'Travessa Invasão', 5231 ),
-    ( 'BMG', 'https://www.bmg.com/de/', 72862024, 'Quadra Quadra 8', 251 ),
-    ( 'Roc Nation', 'https://rocnation.com/', 64016485, 'Rua Nossa Senhora do Perpétuo Socorro', 112 ),
-    ( 'Midas Studios', 'http://midasstudios.com.br/', 74395430, 'Rua SRM 27', 986 ),
-    ( 'K9 Studio', 'https://www.k9estudio.com.br/', 59146350, 'Rua Piau', 1418 );`);
-
   await db.query(`insert into Album (gravadora_id, descricao, data_gravacao, data_compra,	tipo_compra, preco_compra) values
     ( 1 , 'Michael Jackson – Thriller', '1982-11-02', '2019-11-13', 'CD', 39.99 ),
     ( 2 , 'Pink Floyd – The Wall', '1979-11-30', '2019-10-12', 'Vinil', 49.99 ),
