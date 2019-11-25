@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create1v() {
+async function create1e() {
   await db.connect();
 
   await db.query(
@@ -32,4 +32,4 @@ async function create1v() {
   console.log('Restrição criada com sucesso');
 }
 
-create1v();
+create1e();
