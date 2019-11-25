@@ -48,18 +48,6 @@ async function createTables() {
     foreign key (gravadora_id) references Gravadora (id)
   );`);
 
-  console.log('Tabela Album criada');
-  console.log(`create table Album (
-    id serial primary key,
-    gravadora_id integer not null,
-    descricao varchar(100) not null,
-    data_gravacao date not null,
-    data_compra date check (date > '2000-01-01'),
-    tipo_compra varchar(50) not null,
-    preco_compra real,
-    foreign key (gravadora_id) references Gravadora (id)
-  );`);
-
   await db.query(`create table Playlist (
     id serial primary key,
     nome varchar(50) not null,
@@ -67,21 +55,7 @@ async function createTables() {
     tempo_total time
   );`);
 
-  console.log('Tabela Playlist criada');
-  console.log(`create table Playlist (
-    id serial primary key,
-    nome varchar(50) not null,
-    data_criacao timestamp default current_timestamp,
-    tempo_total time
-  );`);
-
   await db.query(`create table Composicao (
-    id serial primary key,
-    tipo varchar(50) not null
-  );`);
-
-  console.log('Tabela Composicao criada');
-  console.log(`create table Composicao (
     id serial primary key,
     tipo varchar(50) not null
   );`);
@@ -98,29 +72,7 @@ async function createTables() {
     foreign key (composicao_id) references Composicao (id)
   );`);
 
-  console.log('Tabela Faixa criada');
-  console.log(`create table Faixa (
-    id serial primary key,
-    album_id integer not null,
-    composicao_id integer not null,
-    descricao varchar(50) not null,
-    tipo_gravacao varchar(50) not null,
-    tempo_execucao time not null,
-    numero_faixa integer not null,
-    foreign key (album_id) references Album (id) on delete cascade,
-    foreign key (composicao_id) references Composicao (id)
-  );`);
-
   await db.query(`create table Faixa_Playlist (
-    faixa_id integer not null,
-    playlist_id integer not null,
-    primary key (faixa_id, playlist_id),
-    foreign key (faixa_id) references Faixa (id),
-    foreign key (playlist_id) references Playlist (id)
-  );`);
-
-  console.log('Tabela Faixa_Playlist criada');
-  console.log(`create table Faixa_Playlist (
     faixa_id integer not null,
     playlist_id integer not null,
     primary key (faixa_id, playlist_id),
@@ -134,13 +86,6 @@ async function createTables() {
     tipo varchar(50) not null
   );`);
 
-  console.log('Tabela Interprete criada');
-  console.log(`create table Interprete (
-    id serial primary key,
-    nome varchar(50) not null,
-    tipo varchar(50) not null
-  );`);
-
   await db.query(`create table Faixa_Interprete (
     faixa_id integer not null,
     interprete_id integer not null,
@@ -149,23 +94,7 @@ async function createTables() {
     foreign key (interprete_id) references Interprete (id)
   );`);
 
-  console.log('Tabela Faixa_Interprete criada');
-  console.log(`create table Faixa_Interprete (
-    faixa_id integer not null,
-    interprete_id integer not null,
-    primary key (faixa_id, interprete_id),
-    foreign key (faixa_id) references Faixa (id),
-    foreign key (interprete_id) references Interprete (id)
-  );`);
-
   await db.query(`create table Periodo_Musical (
-    id serial primary key,
-    descricao varchar(50) not null,
-    intervalo_tempo varchar(50)
-  );`);
-
-  console.log('Tabela Periodo_Musical criada');
-  console.log(`create table Periodo_Musical (
     id serial primary key,
     descricao varchar(50) not null,
     intervalo_tempo varchar(50)
@@ -182,28 +111,7 @@ async function createTables() {
     foreign key (periodo_id) references Periodo_Musical (id)
   );`);
 
-  console.log('Tabela Compositor criada');
-  console.log(`create table Compositor (
-    id serial primary key,
-    periodo_id integer not null,
-    nome varchar(50) not null,
-    local_nasc_cidade varchar(50) not null,
-    local_nasc_pais varchar(50) not null,
-    data_nasc date not null,
-    data_morte date,
-    foreign key (periodo_id) references Periodo_Musical (id)
-  );`);
-
   await db.query(`create table Faixa_Compositor (
-    faixa_id integer not null,
-    compositor_id integer not null,
-    primary key (faixa_id, compositor_id),
-    foreign key (faixa_id) references Faixa (id),
-    foreign key (compositor_id) references Compositor (id)
-  );`);
-
-  console.log('Tabela Faixa_Compositor criada');
-  console.log(`create table Faixa_Compositor (
     faixa_id integer not null,
     compositor_id integer not null,
     primary key (faixa_id, compositor_id),
