@@ -1,11 +1,12 @@
 .mp-container{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr auto;
 }
 
 .mp-musica-play-controle{
   display: grid;
   grid-template-rows: 1fr 1fr;
+  grid-column-start: 3;
   justify-items: center;
 }
 

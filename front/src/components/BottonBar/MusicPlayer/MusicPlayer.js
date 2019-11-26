@@ -3,8 +3,8 @@ import 'rc-slider/assets/index.css';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import "./MusicPlayer.css"
 
-import Image from "../../../images/default.jpg"
-import HeartIcon from "../../../images/BottonBar/heart-icon.svg"
+import MusicCurrentCard from "../MusicCurrentCard/MusicCurrentCard"
+
 import NextIcon from "../../../images/BottonBar/skip-next-icon.svg"
 import PrevIcon from "../../../images/BottonBar/skip-previous-icon.svg"
 import PausetIcon from "../../../images/BottonBar/pause-icon.svg"
@@ -12,9 +12,7 @@ import RepeatIcon from "../../../images/BottonBar/repeat-icon.svg"
 import ShuffleIcon from "../../../images/BottonBar/shuffle-icon.svg"
 import PlayIcon from "../../../images/play-arrow-white.svg"
 
-import Music from "../../../musics/maneva-pisando-descalço.mp3"
-import Music2 from "../../../musics/armandinho-outra-vida.mp3"
-import Music3 from "../../../musics/natiruts-perola-negra.mp3"
+import Image from "../../../images/default.jpg"
 
 function log(value) {
   console.log(value); 
@@ -116,15 +114,9 @@ export default class MusicPlayer extends React.Component {
 
   render(){
 
-    const playList = [Music, Music2, Music3]
+    const playList = this.props.musicList
 
     const currentMusic = playList[this.state.faixaAtual]
-
-    //Mapeia os botões
-    var pauseBtn = document.getElementsByClassName('pauseBtn');
-    var playBtn = document.getElementsByClassName('playBtn');
-    let nextBtn = document.getElementsByClassName('nextBtn');
-    let prevBtn = document.getElementsByClassName('preBtn');
 
     let mainButton;
 
@@ -142,6 +134,9 @@ export default class MusicPlayer extends React.Component {
 
     return(
       <div className="mp-container">
+
+        <MusicCurrentCard nameMusic={"Nome da Musica"} authorMusic={"Nome do Autor"} imageMusic={Image}/>
+
         <div className="mp-musica-play-controle">
           <div className="mp-controler">
             <img className="shuffleBtn mp-musica-play-controle-icons" src={ShuffleIcon} />

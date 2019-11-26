@@ -1,0 +1,40 @@
+.mcc-musica-atual {
+  margin: 10px;
+  margin-left: 30px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: center;
+  align-items: center;
+}
+
+.mcc-musica-atual-capa {
+  margin: 0px;
+  width: 60px;
+  height: 60px;
+  margin-left: 5px;
+  margin-right: 10px;
+
+}
+
+.mcc-musica-atual-nome :nth-child(1){
+  color: white;
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.mcc-musica-atual-nome :nth-child(2){
+  color: white;
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.mcc-musica-atual-icons img{
+  width: 20px;
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

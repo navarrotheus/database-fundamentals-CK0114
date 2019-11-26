@@ -22,13 +22,13 @@ export default class MusicBar extends React.Component {
             </div>
           </a>
           <div>
-            <p className="mb-nome"> Music Name</p>
-            <p className="mb-nome mb-autor"> Author Name</p>
+            <p className="mb-nome">{this.props.musicName}</p>
+            <p className="mb-nome mb-autor"> {this.props.authorName}</p>
           </div>
           <a href="./" className="mb-tail">
             <img className="mb-config" src={Config}/>
           </a>
-          <p className="mb-tempo">5:10</p>
+          <p className="mb-gravadora">{this.props.recording}</p>
         </section>
       </div>
     )

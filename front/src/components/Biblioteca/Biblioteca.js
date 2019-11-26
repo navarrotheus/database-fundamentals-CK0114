@@ -13,14 +13,17 @@ export default class Biblioteca extends React.Component {
           <section className="b-titulo-container">
             <h1 className="b-titulo">Minhas músicas</h1>
           </section>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
-          <MusicBar/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
+          <MusicBar musicName={"Nome da musica AQUI"} recording={"DDD"} authorName={"Nome do Autor"}/>
         </section>
       </div>
     )
