@@ -1,14 +1,11 @@
 import { Router } from 'express';
 
-const db = require('./database/client');
+// importacao de controllers
+
+// importacao de middlewares
 
 const routes = new Router();
 
-routes.get('/albums', async (req, res) => {
-  const { albums } = await db.query(
-    'select descricao nome, tipo_compra tipo, preco_compra preco from album'
-  );
-  return res.send(JSON.stringify(albums.rows));
-});
+// rotas aqui
 
 export default routes;
