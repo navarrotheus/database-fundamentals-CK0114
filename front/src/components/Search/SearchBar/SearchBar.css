@@ -1,0 +1,28 @@
+.searchBar-container{
+  width: 60%;
+  height: 50px;
+  border-radius: 50px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+#searchBar-input{
+  border: none;
+  width: 95%;
+  height: 30px;
+  font-size: 14px;
+  border-color: none;
+  padding: 0px;
+}
+
+#searchBar-input:focus {
+  outline-width: 0px;
+}
+
+.searchBar-search-icon{
+  width: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+}

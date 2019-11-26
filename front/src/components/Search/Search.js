@@ -9,7 +9,9 @@ export default class Search extends React.Component {
   render(){
     return(
       <div className="alinhar">
-        <SearchBar/> 
+        <div className="search-container">
+          <SearchBar/> 
+        </div>
       </div>
     )
   }
