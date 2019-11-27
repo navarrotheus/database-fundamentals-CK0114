@@ -3,6 +3,14 @@ import "./MusicDescription.css"
 
 import Image from "../../images/default.jpg"
 
+// data[0]: Nome da Musica
+// data[1]: Interpretes
+// data[2]: Autores
+// data[3]: Descrição
+// data[4]: Gravadora
+// data[5]: Periodo Musical
+
+
 export default class MusicDescription extends React.Component {
   render() {
     return (
@@ -12,35 +20,35 @@ export default class MusicDescription extends React.Component {
 
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Nome da Musica: </p>
-            <p className="musicDesc-answer">{"MusicName"}</p>
+            <p className="musicDesc-answer">{this.props.data[0]}</p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Nome do Interprete:</p>
-            <p className="musicDesc-answer">{"Interprete1, Interprete2..."}</p>
+            <p className="musicDesc-answer">{this.props.data[1]}</p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Nome do Autor:</p>
-            <p className="musicDesc-answer">{"Autor1, Autor2..."}</p>
+            <p className="musicDesc-answer">{this.props.data[2]}</p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Albuns que contem</p>
-            <p className="musicDesc-answer">{"Album1, Album2..."} </p>
+            <p className="musicDesc-answer">{"Em manutenção"} </p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >PLay list que contem:</p>
-            <p className="musicDesc-answer">{"PlayList1, PlayList2..."} </p>
+            <p className="musicDesc-answer">{"Em manutenção"} </p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Descrição:</p>
-            <p className="musicDesc-answer"> {" de até 50 caracteres 1212121212121212"} </p>
+            <p className="musicDesc-answer"> {this.props.data[3]} </p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Tipo de gravação:</p>
-            <p className="musicDesc-answer">{"DDD"} </p>
+            <p className="musicDesc-answer">{this.props.data[4]} </p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >TPeriodo Musical:</p>
-            <p className="musicDesc-answer">{"Barroco"} </p>
+            <p className="musicDesc-answer">{this.props.data[5]} </p>
           </div>
         </section>
       </div>
