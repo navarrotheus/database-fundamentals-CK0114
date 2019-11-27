@@ -4,7 +4,7 @@ import "./Router.css"
 
 import Home from "../Home/Home"
 import Biblioteca from "../Biblioteca/Biblioteca"
-import MusicBar from "../MusicBar/MusicBar"
+import MusicDescription from "../MusicDescription/MusicDescription"
 import Search from "../Search/Search"
 
 class Router extends Component {
@@ -15,6 +15,7 @@ class Router extends Component {
         <Route path="/Home" component={Home} />
         <Route path="/Biblioteca" component={Biblioteca} />
         <Route path="/Pesquisar" component={Search} />
+        <Route path="/Biblioteca/teste" component={MusicDescription} />
       </Switch>
       
     );

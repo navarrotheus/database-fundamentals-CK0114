@@ -1,0 +1,31 @@
+.musicDesc-container{
+  margin-right: 5%;
+  margin-left: 30px;
+  margin-top: 40px;
+  color: white;
+}
+
+.musicDesc-image {
+  width: 100px;
+}
+
+.musicDesc-label{
+  width: auto;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.musicDesc-question{
+  float: left;
+  margin: 0px;
+  font-size: 22px;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.musicDesc-answer{
+  margin: 0px;
+  grid-column-start: 2;
+}
