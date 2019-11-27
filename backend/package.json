@@ -12,6 +12,7 @@
     "create5": "node src/database/migrations/create-5.js",
     "create6": "node src/database/migrations/create-6.js",
     "createAll": "node src/database/migrations/create-tables.js && yarn create3b && yarn create1e && yarn create5 && yarn create6",
+    "createAllRestrictions": "yarn create3b && yarn create1e && yarn create5 && yarn create6",
     "deleteSchema": "node src/database/migrations/drop-schema-public.js",
     "seedDb": "node src/database/seeds/seed-database-1.js"
   },
