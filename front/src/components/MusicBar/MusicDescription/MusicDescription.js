@@ -1,7 +1,7 @@
 import React from 'react';
 import "./MusicDescription.css"
 
-import Image from "../../images/default.jpg"
+import Image from "../../../images/default.jpg"
 
 // data[0]: Nome da Musica
 // data[1]: Interpretes
@@ -31,11 +31,11 @@ export default class MusicDescription extends React.Component {
             <p className="musicDesc-answer">{this.props.data[2]}</p>
           </div>
           <div className="musicDesc-label">
-            <p className="musicDesc-question" >Albuns que contem</p>
+            <p className="musicDesc-question" >Tipo de composição:</p>
             <p className="musicDesc-answer">{"Em manutenção"} </p>
           </div>
           <div className="musicDesc-label">
-            <p className="musicDesc-question" >PLay list que contem:</p>
+            <p className="musicDesc-question" >Tempo de execução:</p>
             <p className="musicDesc-answer">{"Em manutenção"} </p>
           </div>
           <div className="musicDesc-label">

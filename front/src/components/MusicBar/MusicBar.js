@@ -3,7 +3,7 @@ import React from 'react';
 import "./MusicBar.css"
 
 import ReactModal from 'react-modal';
-import MusicDescription from "../MusicDescription/MusicDescription"
+import MusicDescription from "./MusicDescription/MusicDescription"
 
 import Image from "../../images/default.jpg"
 import MusicIcon from "../../images/MusicBar/music-icon.png"

@@ -17,3 +17,38 @@
   font-size: 40px;
   font-weight: 700;
 }
+
+.b-descAlbum{
+  color: white
+}
+
+.b-modal-container{
+  position: absolute;
+  top: 40px;
+  left: 500px;
+  right: 40px;
+  bottom: 40px;
+  width: 600px;
+  background-color: rgb(34, 12, 12);
+}
+
+.b-btnDesc{
+  font-size: 15px;
+  color: white;
+  background: 0px;
+  padding: 0px;
+  border: none;
+}
+
+.b-btnDesc:hover{
+  color: rgb(175, 37, 48);
+}
+
+.b-modal-closetbtn{
+  float: right;
+  border: none;
+  color: white;
+  background: none;
+  font-size: 20px;
+  margin: 15px;
+}
