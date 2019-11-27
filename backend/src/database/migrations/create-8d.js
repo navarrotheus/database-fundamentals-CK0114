@@ -43,7 +43,7 @@ async function create8a() {
 
   await db.end();
 
-  console.log('View criada com sucesso');
+  console.log('View 8d criada com sucesso');
 }
 
 create8a();

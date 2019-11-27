@@ -15,7 +15,7 @@ async function create6() {
 
   await db.end();
 
-  console.log('Funcao criada com sucesso');
+  console.log('Funcao 6 criada com sucesso');
 }
 
 create6();

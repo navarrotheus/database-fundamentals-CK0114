@@ -16,7 +16,7 @@ async function create5() {
 
   await db.end();
 
-  console.log('View criada com sucesso');
+  console.log('View 5 criada com sucesso');
 }
 
 create5();

@@ -29,7 +29,7 @@ async function create1e() {
 
   await db.end();
 
-  console.log('Restrição criada com sucesso');
+  console.log('Restrição 1e criada com sucesso');
 }
 
 create1e();
