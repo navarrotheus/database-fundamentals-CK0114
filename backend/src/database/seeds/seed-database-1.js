@@ -55,6 +55,8 @@ async function seedTables() {
 
   await db.query(`insert into Faixa_Playlist (faixa_id, playlist_id) values
     ( 5, 3 ),
+    ( 4, 2 ),
+    ( 5, 1 ),
     ( 6, 3 ),
     ( 7, 3 ),
     ( 8, 3 ),
