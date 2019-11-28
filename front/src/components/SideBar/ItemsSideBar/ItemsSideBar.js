@@ -7,6 +7,7 @@ import Logo from "../../../images/logo.png"
 import Home from "../../../images/SideBar/home-icon.png"
 import Album from "../../../images/SideBar/album-icon.png"
 import Playlist from "../../../images/SideBar/playlist-icon.png"
+import SearchIcon from "../../../images/Search/search-icon-white.svg"
 
 
 export default class ItemsSideBar extends React.Component {
@@ -33,7 +34,7 @@ export default class ItemsSideBar extends React.Component {
           </Link>
         </section>
         <section className="isb-itens">
-          <img src={Playlist} className="isb-icon" />
+          <img src={SearchIcon} className="isb-icon" />
           <Link to="/Pesquisar">
             <p className="isb-icon-nome"> Pesquisar </p>
           </Link>

@@ -4,7 +4,9 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(rgb(61, 16, 44) ,rgb(9, 17, 43), #6b0404);
+  /*background-image: linear-gradient(rgb(61, 16, 44) ,rgb(9, 17, 43), #6b0404);
+  */
+  background-color: rgb(18,18,18);
 }
 
 a {

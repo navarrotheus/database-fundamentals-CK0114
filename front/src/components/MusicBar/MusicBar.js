@@ -3,6 +3,9 @@ import React from 'react';
 import "./MusicBar.css"
 
 import ReactModal from 'react-modal';
+import {
+  Link,
+} from "react-router-dom";
 import MusicDescription from "./MusicDescription/MusicDescription"
 
 import Image from "../../images/default.jpg"
@@ -42,6 +45,10 @@ export default class MusicBar extends React.Component {
 
   render() {
 
+    let name = this.props.data[1].map(cur => 
+      <Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
+    )
+
     console.log(this.props.data)
 
     return(
@@ -59,7 +66,7 @@ export default class MusicBar extends React.Component {
           </div>
           <div>
             <p className="mb-nome">{this.props.data[0]}</p>
-            <p className="mb-nome mb-autor"> {this.props.data[1]}</p>
+            <p className="mb-nome mb-autor"> {name}</p>
           </div>
           <a href="./" className="mb-tail">
             <img className="mb-config" src={Config}/>

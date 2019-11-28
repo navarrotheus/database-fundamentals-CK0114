@@ -70,7 +70,7 @@ export default class Biblioteca extends React.Component {
             className="b-modal-container"
           >
             <button className="b-modal-closetbtn" onClick={this.handleCloseModal}>X</button>
-            <LibraryDescription data={myAlbum} isAlbum={true}/>
+            <LibraryDescription data={myAlbum} type={this.props.typeList}/>
           </ReactModal>
             {musicas}
         </section>

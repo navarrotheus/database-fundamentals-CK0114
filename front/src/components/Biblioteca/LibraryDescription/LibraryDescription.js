@@ -32,7 +32,7 @@ class LibraryDescription extends Component {
               </div>
       </div>
 
-    if(this.props.isAlbum){
+    if(this.props.type === "Album"){
       desc =<div className="libDesc-container"> 
               <div className="libDesc-label">
                   <p className="libDesc-question" >Nome do Album: </p>

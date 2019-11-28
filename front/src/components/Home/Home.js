@@ -36,7 +36,7 @@ export default class Home extends React.Component {
         {/* ALBUM */}
         <section className="home-container">
           <section className="home-titulo-container">
-            <h3 className="home-titulo">Album</h3>
+            <h3 className="home-titulo">Albuns</h3>
             <p className="home-titulo-desc">Os melhores</p>
             <div className="home-cards-container">
               {album}
@@ -45,7 +45,7 @@ export default class Home extends React.Component {
 
           {/* PLAYLIS */}
           <section className="home-titulo-container">
-            <h3 className="home-titulo">Albúns Recentes</h3>
+            <h3 className="home-titulo">PlayLists</h3>
             <p className="home-titulo-desc">Não param de tocar nunca</p>
             <div className="home-cards-container">
               {playList}

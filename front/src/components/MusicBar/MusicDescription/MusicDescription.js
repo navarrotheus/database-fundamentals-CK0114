@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  Link,
+} from "react-router-dom";
+
 import "./MusicDescription.css"
 
 import Image from "../../../images/default.jpg"
@@ -13,22 +17,31 @@ import Image from "../../../images/default.jpg"
 
 export default class MusicDescription extends React.Component {
   render() {
+
+    let nameInter = this.props.data[1].map(cur => 
+      <Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
+    )
+    
+    let nameAuthor = this.props.data[2].map(cur => 
+      <Link className="plc-author-name" to={`/Autor/${cur}`}> {cur} </Link>
+    )
+
     return (
       <div className="alinhar">
         <section className="musicDesc-container">
           <img className="musicDesc-image" src={Image} />
 
-          <div className="musicDesc-label">
-            <p className="musicDesc-question" >Nome da Musica: </p>
-            <p className="musicDesc-answer">{this.props.data[0]}</p>
-          </div>
+            <div className="musicDesc-label">
+              <p className="musicDesc-question" >Nome da Musica: </p>
+              <p className="musicDesc-answer">{this.props.data[0]}</p>
+            </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Nome do Interprete:</p>
-            <p className="musicDesc-answer">{this.props.data[1]}</p>
+            <p className="musicDesc-answer">{nameInter}</p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Nome do Autor:</p>
-            <p className="musicDesc-answer">{this.props.data[2]}</p>
+            <p className="musicDesc-answer">{nameAuthor}</p>
           </div>
           <div className="musicDesc-label">
             <p className="musicDesc-question" >Tipo de composição:</p>

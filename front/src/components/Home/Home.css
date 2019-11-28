@@ -1,5 +1,9 @@
 .home-container {
+  /*
   background-image: linear-gradient(rgb(22, 22, 17) ,rgb(37, 12, 27), #2c0b0b);
+  */
+  background-color: rgb(18,18,18);
+
 }
 
 .home-titulo-container {
