@@ -47,7 +47,7 @@ async function createTables() {
     album_id integer not null,
     composicao_id integer not null,
     descricao varchar(50) not null,
-    tipo_gravacao varchar(50) not null check (tipo_gravacao = 'ADD' or tipo_gravacao = 'DDD'),
+    tipo_gravacao varchar(50) not null check (tipo_gravacao ILIKE 'ADD' or tipo_gravacao ILIKE 'DDD'),
     tempo_execucao time not null,
     numero_faixa integer not null,
     foreign key (album_id) references Album (id),
