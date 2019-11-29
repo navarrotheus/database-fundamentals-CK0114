@@ -3,29 +3,24 @@ const db = require('../client');
 async function create1e() {
   await db.connect();
 
-  await db.query(
-    `create view qnt_faixas_ddd as select f.album_id, count(f.album_id) from album a join faixa f on a.id=f.album_id where tipo_gravacao='DDD' group by f.album_id`
-  );
-
-  await db.query(`create function check_qnt_faixa_ddd(faixa_album_id integer) returns bigint as $$
+  await db.query(`create function media_albums_ddd() returns double precision as $$
 	begin
-	return (select count from qnt_faixas_ddd where album_id = faixa_album_id);
+	return (select distinct avg(a.preco_compra) from faixa f join album a on f.album_id=a.id where qnt_faixas_ddd_album(f.album_id)=qnt_faixas_album(f.album_id));
 	end; $$
   language plpgsql;`);
 
-  await db.query(
-    `create view albums_ddd as select distinct f.album_id, a.preco_compra from faixa f join album a on f.album_id=a.id where check_qnt_faixa_ddd(f.album_id)=check_qnt_faixa(f.album_id)`
-  );
-
-  await db.query(`create function check_media_albums_ddd() returns double precision as $$
+  await db.query(`create function check_1e() returns trigger as $$
 	begin
-	return (select avg(preco_compra) from albums_ddd);
+	if (new.preco_compra >= 3*media_albums_ddd()) then
+		raise exception 'O preço de compra de um álbum não dever ser superior a três vezes a média do preço de compra de álbuns, com todas as faixas com tipo de gravação DDD.';
+	end if;
+	return new;
 	end; $$
   language plpgsql;`);
-
-  await db.query(
-    `alter table album add check (preco_compra <= 3*check_media_albums_ddd())`
-  );
+  
+  await db.query(`create trigger check_1e
+  before insert or update on album
+  for each row execute procedure check_1e();`);
 
   await db.end();
 

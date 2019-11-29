@@ -4,19 +4,16 @@ async function create5() {
   await db.connect();
 
   await db.query(
-    `create function qnt_albums_playlist(plalist_id integer) returns bigint as $$
-    begin
-    return (select count(distinct f.album_id) from faixa f join faixa_playlist fp on f.id = fp.faixa_id where fp.playlist_id=plalist_id);
-    end; $$
-    language plpgsql;`
+    `create materialized view qnt_albums_playlist
+    as select p.nome, count(distinct f.album_id) from faixa f join faixa_playlist fp on f.id = fp.faixa_id join playlist p on p.id=fp.playlist_id where fp.playlist_id=p.id group by p.nome
+    with data;`
   );
 
-  await db.query(`create view qnt_albums_playlist as select p.nome, qnt_albums_playlist(p.id) from playlist p
-  `);
+  await db.query(`create unique index qnt_albums_playlist_index on qnt_albums_playlist(nome);`);
 
   await db.end();
 
-  console.log('View 5 criada com sucesso');
+  console.log('Materialized view 5 criada com sucesso');
 }
 
 create5();

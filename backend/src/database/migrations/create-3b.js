@@ -9,9 +9,18 @@ async function create3b() {
   end; $$
 language plpgsql;`);
 
-  await db.query(
-    `alter table faixa add check (qnt_faixas_album(album_id) < 64)`
-  );
+  await db.query(`create function check_3b() returns trigger as $$
+	begin
+	if (qnt_faixas_album(new.album_id) >= 64) then
+		raise exception 'Um álbum não pode ter mais que 64 faixas (músicas).';
+	end if;
+	return new;
+	end; $$
+  language plpgsql;`);
+  
+  await db.query(`create trigger check_3b
+  before insert or update on faixa
+  for each row execute procedure check_3b();`);
 
   await db.end();
 

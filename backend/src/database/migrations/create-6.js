@@ -3,13 +3,9 @@ const db = require('../client');
 async function create6() {
   await db.connect();
 
-  await db.query(
-    `create view album_compositor as select distinct f.album_id, fc.compositor_id from faixa f join faixa_compositor fc on f.id = fc.faixa_id`
-  );
-
-  await db.query(`create function nome_albums_compositor (name varchar(100)) returns table (album_id integer, nome varchar(100)) as $$
+  await db.query(`create function nome_albums_compositor(var_nome varchar(100)) returns table (album_id integer, nome varchar(50)) as $$
 	begin
-	return query (select ac.album_id, c.nome from compositor c join album_compositor ac on c.id=ac.compositor_id where c.nome like '%' || name || '%');
+	return query select distinct f.album_id, c.nome from compositor c join faixa_compositor fc on c.id=fc.compositor_id join faixa f on f.id=fc.faixa_id where c.nome like '%' || var_nome || '%';
 	end; $$
 	language plpgsql;`);
 
