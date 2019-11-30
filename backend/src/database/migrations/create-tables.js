@@ -58,8 +58,8 @@ async function createTables() {
     faixa_id integer not null,
     playlist_id integer not null,
     primary key (faixa_id, playlist_id),
-    foreign key (faixa_id) references Faixa (id),
-    foreign key (playlist_id) references Playlist (id)
+    foreign key (faixa_id) references Faixa (id) on delete cascade,
+    foreign key (playlist_id) references Playlist (id) on delete cascade
   );`);
 
   await db.query(`create table Interprete (
