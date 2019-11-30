@@ -6,30 +6,66 @@ import PlayListCard from "../PlayListCard/PlayListCard"
 
 export default class Home extends React.Component {
 
+  state = {
+    error : null,
+    playlist: [],
+    albums: []
+  }
+
+  componentDidMount() {
+    fetch('https://localhost:3333/albums')
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        albums: responseJson
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    fetch('https://localhost:3333/playlist')
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        playlist: responseJson
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
   render(){
 
-    let myAlbum = [
-      ["Nome Album", ["Interprete1", "Interprete2"], "IdAlbum"],
-      ["Nome Album2", ["Interprete21", "Interprete22"], "IdAlbum2"],
-      ["Nome Album3", ["Interprete31", "Interprete32"], "IdAlbum3"],
+    const teste = [
+      {
+        "id": 3,
+        "nome": "MinhaPlaylist"
+      },
+      {
+        "id": 4,
+        "nome": "rgrtr"
+      },
+      {
+        "id": 5,
+        "nome": "rgaartr"
+      },
     ]
 
-    let myPlayList = [
-      ["Nome PlayList", "IDPList"],
-      ["Nome PlayList2", "IDPList2"],
-      ["Nome PlayList3", "IDPList3"],
-    ]
+    let requestAlbums = teste //this.state.albums
+    let requestPlaylist = teste //this.state.playlist
 
-    let album = myAlbum.map(cur => <div className="home-pl">
-                                      <PlayListCard data={cur} isAlbum={true}/>
-                                    </div>
-                            )
+    let myAlbum = requestAlbums.map(cur => 
+      <div className="home-pl">
+        <PlayListCard data={cur} isAlbum={true}/>
+      </div>
+      )
 
-    let playList = myPlayList.map(cur => <div className="home-pl">
-                                            <PlayListCard data={cur} isAlbum={false}/>
-                                          </div>
-                                  )
-
+    let myPlayList = requestPlaylist.map(cur => 
+      <div className="home-pl">
+        <PlayListCard data={cur} isAlbum={true}/>
+      </div>
+      )
 
     return(
       <div className="alinhar">
@@ -39,16 +75,16 @@ export default class Home extends React.Component {
             <h3 className="home-titulo">Albuns</h3>
             <p className="home-titulo-desc">Os melhores</p>
             <div className="home-cards-container">
-              {album}
+              {myAlbum}
             </div>
           </section>
-
+          {console.log(teste[1])}
           {/* PLAYLIS */}
           <section className="home-titulo-container">
             <h3 className="home-titulo">PlayLists</h3>
             <p className="home-titulo-desc">Não param de tocar nunca</p>
             <div className="home-cards-container">
-              {playList}
+              {myPlayList}
             </div>
           </section>
 

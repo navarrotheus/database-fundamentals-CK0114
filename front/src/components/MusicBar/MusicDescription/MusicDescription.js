@@ -16,6 +16,24 @@ import Image from "../../../images/default.jpg"
 
 
 export default class MusicDescription extends React.Component {
+
+  state = {
+    myMusic: []
+  }
+
+  componentDidMount() {
+    fetch(`https://localhost:3333/albums/${this.props.idList}`)
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        myMusic: responseJson
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
   render() {
 
     let nameInter = this.props.data[1].map(cur => 
@@ -60,7 +78,7 @@ export default class MusicDescription extends React.Component {
             <p className="musicDesc-answer">{this.props.data[4]} </p>
           </div>
           <div className="musicDesc-label">
-            <p className="musicDesc-question" >TPeriodo Musical:</p>
+            <p className="musicDesc-question" >Periodo Musical:</p>
             <p className="musicDesc-answer">{this.props.data[5]} </p>
           </div>
         </section>

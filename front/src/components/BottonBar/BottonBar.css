@@ -5,6 +5,7 @@
   height: 80px;
   background-color: rgb(34, 12, 12);
   border-top: 1px solid #282828;
+  z-index: 1000000;
 }
 
 .bb-musica-play{

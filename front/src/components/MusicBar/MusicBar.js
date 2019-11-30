@@ -28,7 +28,6 @@ export default class MusicBar extends React.Component {
     super();
     this.state = {
       showModal: false,
-      musicID: "Id da musica",
     };
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -45,11 +44,14 @@ export default class MusicBar extends React.Component {
 
   render() {
 
-    let name = this.props.data[1].map(cur => 
-      <Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
-    )
+    //let name = this.props.data[1].map(cur => 
+      //<Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
+    //)
 
-    console.log(this.props.data)
+    let musica = this.props.data[0]
+
+    console.log("testes =================")
+    console.log(musica)
 
     return(
       <div className="alinhar">
@@ -65,13 +67,13 @@ export default class MusicBar extends React.Component {
             </button>
           </div>
           <div>
-            <p className="mb-nome">{this.props.data[0]}</p>
-            <p className="mb-nome mb-autor"> {name}</p>
+            <p className="mb-nome">{musica["nome_faixa"]}</p>
+            {/*<p className="mb-nome mb-autor"> {name}</p>*/}
           </div>
           <a href="./" className="mb-tail">
             <img className="mb-config" src={Config}/>
           </a>
-          <p className="mb-gravadora">{this.props.data[4]}</p>
+          <p className="mb-gravadora">{musica["tipo_faixa"]}</p>
         </section>
         <ReactModal
           isOpen={this.state.showModal}
@@ -80,7 +82,7 @@ export default class MusicBar extends React.Component {
           className="mb-modal-container"
         >
           <button onClick={this.handleCloseModal} className="mb-modal-closetbtn">X</button>
-          <MusicDescription data={this.props.data}/>
+          <MusicDescription data={musica}/>
         </ReactModal>
       </div>
     )

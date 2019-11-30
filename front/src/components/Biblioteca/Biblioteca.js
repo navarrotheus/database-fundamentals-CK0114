@@ -15,6 +15,7 @@ export default class Biblioteca extends React.Component {
     super();
     this.state = {
       showModal: false,
+      listMusic: []
     };
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -29,6 +30,19 @@ export default class Biblioteca extends React.Component {
     this.setState({ showModal: false });
   }
 
+  componentDidMount() {
+    fetch(`https://localhost:3333/albums/${this.props.idList}`)
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        listMusic: responseJson
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
   render(){
 
     let myAlbum = [
@@ -37,18 +51,20 @@ export default class Biblioteca extends React.Component {
     ]
 
     let myMusics = [
-      ["Nome da Musica1", ["Interprete1", "interprete2"], 
-       ["autor1", "autor2"],"descrição1", "DDD", "Periodo musical" 
-      ],
-      ["Nome da Musica2", ["Interprete21", "interprete22"], 
-       ["autor21", "autor22"],"descrição2", "DDD", "Periodo musical2" 
-      ],
-      ["Nome da Musica3", ["Interprete31", "interprete32"], 
-       ["autor31", "autor32"],"descrição3", "DCD", "Periodo musical3" 
-      ],
-      ["Nome da Musica3", ["Interprete31", "interprete32"], 
-       ["autor31", "autor32"],"descrição3", "DDD", "Periodo musical3" 
-      ],
+      [{
+        id_faixa: 1,
+        nome_faixa: "teste",
+        tipo_faixa: "DDD"
+      }],
+      [{
+        id_faixa: 2,
+        nome_faixa: "teste2",
+        tipo_faixa: "DDx"
+      }],      [{
+        id_faixa: 3,
+        nome_faixa: "teste3",
+        tipo_faixa: "DDz"
+      }],
     ]
         
     let musicas = myMusics.map(cur => <MusicBar data={cur}/>)
