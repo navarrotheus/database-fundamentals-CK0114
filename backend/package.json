@@ -1,0 +1,37 @@
+{
+  "name": "spotper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "dev:debug": "nodemon --inspect src/server.js",
+    "createTables": "node src/database/migrations/create-tables.js",
+    "create3b": "node src/database/migrations/create-3b.js",
+    "create3a": "node src/database/migrations/create-3a.js",
+    "create1e": "node src/database/migrations/create-1e.js",
+    "create5": "node src/database/migrations/create-5.js",
+    "create6": "node src/database/migrations/create-6.js",
+    "create8a": "node src/database/migrations/create-8a.js",
+    "create8d": "node src/database/migrations/create-8d.js",
+    "createAllRestrictions": "yarn create3b && yarn create3a && yarn create1e && yarn create6 && yarn create5 && yarn create8a && yarn create8d",
+    "deleteSchema": "node src/database/migrations/drop-schema-public.js",
+    "seedDb": "node src/database/seeds/seed-database-1.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "sucrase": "^3.10.1"
+  }
+}
