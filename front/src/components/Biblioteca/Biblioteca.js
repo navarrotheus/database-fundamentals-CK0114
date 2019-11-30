@@ -38,16 +38,16 @@ export default class Biblioteca extends React.Component {
 
     let myMusics = [
       ["Nome da Musica1", ["Interprete1", "interprete2"], 
-       ["autor1", "autor2"],"descrição1", "Gravadora1", "Periodo musical" 
+       ["autor1", "autor2"],"descrição1", "DDD", "Periodo musical" 
       ],
       ["Nome da Musica2", ["Interprete21", "interprete22"], 
-       ["autor21", "autor22"],"descrição2", "Gravadora2", "Periodo musical2" 
+       ["autor21", "autor22"],"descrição2", "DDD", "Periodo musical2" 
       ],
       ["Nome da Musica3", ["Interprete31", "interprete32"], 
-       ["autor31", "autor32"],"descrição3", "Gravadora3", "Periodo musical3" 
+       ["autor31", "autor32"],"descrição3", "DCD", "Periodo musical3" 
       ],
       ["Nome da Musica3", ["Interprete31", "interprete32"], 
-       ["autor31", "autor32"],"descrição3", "Gravadora3", "Periodo musical3" 
+       ["autor31", "autor32"],"descrição3", "DDD", "Periodo musical3" 
       ],
     ]
         
