@@ -14,6 +14,8 @@ class Album {
 
     return album;
   }
+
+  
 }
 
 export default Album;
