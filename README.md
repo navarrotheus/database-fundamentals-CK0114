@@ -1,10 +1,11 @@
 <h1 align="center">
-   SpotPer
+  <img alt="SpotPer" title="SpotPer" src="https://uploaddeimagens.com.br/images/002/472/517/original/spotper.png?1572625611" width="400px" />
 </h1>
 
 <p align = "center">
    <a href="#memo-especificação-de-requisitos">Especificacao de requisitos</a>&nbsp;|&nbsp;
-   <a href="#bar_chart-der">DER</a>
+   <a href="#bar_chart-der">DER</a>&nbsp;&nbsp;|&nbsp;
+   <a href="#bar_chart-dr">DR</a>
 </p>
 
 ## :memo: Especificação de requisitos
@@ -55,4 +56,7 @@ e o número de vezes que foi tocada.
   
 
 ## :bar_chart: DER
-![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER/DER.jpg)
+![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
+
+## :bar_chart: DR
+![DR](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DR.jpg)
