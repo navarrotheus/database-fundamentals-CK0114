@@ -9,7 +9,10 @@ class AlbumController {
   }
 
   async indexById(req, res) {
-    const { rows } = await album.getAlbumsById(req.params.id);
+    const id = req.params.id;
+    
+    const { rows } = await album.getAlbumsById(id);
+
     return res.json(rows);
   }
 }
