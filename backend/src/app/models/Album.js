@@ -2,7 +2,7 @@ const db = require('../../database/pool');
 
 class Album {
   async getAlbums() {
-    const albums = await db.query(`select a.id, a.descricao from album a`);
+    const albums = await db.query(`select a.id, a.descricao nome from album a`);
 
     return albums;
   }
