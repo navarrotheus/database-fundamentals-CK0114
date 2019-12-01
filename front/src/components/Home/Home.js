@@ -13,7 +13,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://localhost:3333/albums')
+    fetch('http://localhost:3333/albums')
     .then(response => response.json())
     .then(responseJson => {
       this.setState({
@@ -23,7 +23,7 @@ export default class Home extends React.Component {
     .catch(error => {
       console.error(error);
     });
-    fetch('https://localhost:3333/playlist')
+    fetch('http://localhost:3333/playlists')
     .then(response => response.json())
     .then(responseJson => {
       this.setState({
@@ -52,8 +52,8 @@ export default class Home extends React.Component {
       },
     ]
 
-    let requestAlbums = teste //this.state.albums
-    let requestPlaylist = teste //this.state.playlist
+    let requestAlbums = this.state.albums
+    let requestPlaylist = this.state.playlist
 
     let myAlbum = requestAlbums.map(cur => 
       <div className="home-pl">
@@ -78,7 +78,7 @@ export default class Home extends React.Component {
               {myAlbum}
             </div>
           </section>
-          {console.log(teste[1])}
+          {console.log(this.state.albums)}
           {/* PLAYLIS */}
           <section className="home-titulo-container">
             <h3 className="home-titulo">PlayLists</h3>

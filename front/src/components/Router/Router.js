@@ -13,9 +13,9 @@ import PlayList from "../PlayList/PlayList"
 
 function teste(value) {
   switch (value.params.thing) {
-    case "Album":
+    case "albums":
       return <Biblioteca idList={value.params.id} typeList={value.params.thing}/>
-    case "PlayList":
+    case "playlists":
       return <Biblioteca idList={value.params.id} typeList={value.params.thing}/>
     case "Autor":
       return <Composer type={value.params.thing} name={value.params.id}/>
@@ -42,7 +42,7 @@ class Router extends Component {
         <Route path="/Home" component={Home} />
         <Route path="/Pesquisar" component={Search} />
         <Route path="/Biblioteca" component={faixas} />
-        <Route path="/Playlists" component={PlayList} />
+        <Route path="/Playlist" component={PlayList} />
         <Route path="/:thing/:id" component={Child} />
       </Switch>
       

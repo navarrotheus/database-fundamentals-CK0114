@@ -31,8 +31,9 @@ export default class Biblioteca extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.typeList)
     if(this.props.typeList === "Biblioteca"){
-      fetch(`https://localhost:3333/biblioteca`)
+      fetch(`http://localhost:3333/biblioteca`)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -44,7 +45,7 @@ export default class Biblioteca extends React.Component {
       });
     }
     else{
-      fetch(`https://localhost:3333/${this.props.typeList}/${this.props.idList}`)
+      fetch(`http://localhost:3333/${this.props.typeList}/${this.props.idList}`)
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -59,12 +60,14 @@ export default class Biblioteca extends React.Component {
 
   render(){
 
-    let myAlbum = [
+    let myMusics = this.state.listMusic;
+    console.log(myMusics);
+    /*[
       "Nome do Album1", "ID Album1", "ID Gravadora1", "Descrição1",
       "Data de compra1", "Tipo de compra1", "Preço da compra1" 
-    ]
+    ]*/
 
-    let myMusics = [
+    let myMusicsgg = [
       [{
         id_faixa: 1,
         nome_faixa: "teste",
@@ -106,7 +109,7 @@ export default class Biblioteca extends React.Component {
             className="b-modal-container"
           >
             <button className="b-modal-closetbtn" onClick={this.handleCloseModal}>X</button>
-            <LibraryDescription data={myAlbum} type={this.props.typeList}/>
+            <LibraryDescription data={0} type={this.props.typeList}/>
           </ReactModal>
             {musicas}
         </section>

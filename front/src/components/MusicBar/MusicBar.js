@@ -48,7 +48,7 @@ export default class MusicBar extends React.Component {
       //<Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
     //)
 
-    let musica = this.props.data[0]
+    let musica = this.props.data
 
     console.log("testes =================")
     console.log(musica)

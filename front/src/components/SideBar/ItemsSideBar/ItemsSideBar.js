@@ -29,7 +29,7 @@ export default class ItemsSideBar extends React.Component {
         </section>
         <section className="isb-itens">
           <img src={Playlist} className="isb-icon" />
-          <Link to="/Playlists">
+          <Link to="/Playlist">
             <p className="isb-icon-nome"> Playlists </p>
           </Link>
         </section>

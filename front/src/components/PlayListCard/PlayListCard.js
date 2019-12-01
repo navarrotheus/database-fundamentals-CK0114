@@ -20,11 +20,12 @@ export default class PlayListCard extends React.Component {
     // data[0]: Nome da PList
     // data[1]: Id PList
 
-    let typeList = "PlayList"
+    let typeList = "playlists"
     let idList = this.props.data['id']
+    let nomeList = this.props.data["nome"]
 
     if(this.props.isAlbum){
-      typeList = "Album"
+      typeList = "albums"
     }
 
 
@@ -36,7 +37,7 @@ export default class PlayListCard extends React.Component {
             <Link to={`/${typeList}/${idList}`}><img className="plc-play" src={PlayButton} alt="PlayButton" /></Link>
           </div>
           <div className="plc-list-name-container">
-            <Link className="plc-list-name" to={`/${typeList}/${idList}`} >{this.props.data["nome"]}</Link>
+            <Link className="plc-list-name" to={`/${typeList}/${idList}`} >{nomeList}</Link>
           </div>
 
         </section>
