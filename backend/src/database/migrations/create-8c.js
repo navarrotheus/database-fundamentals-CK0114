@@ -33,4 +33,4 @@ async function create8c() {
   console.log('Funcao 8c criada com sucesso');
 }
 
-create8b();
+create8c();
