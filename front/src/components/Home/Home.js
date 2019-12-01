@@ -63,7 +63,7 @@ export default class Home extends React.Component {
 
     let myPlayList = requestPlaylist.map(cur => 
       <div className="home-pl">
-        <PlayListCard data={cur} isAlbum={true}/>
+        <PlayListCard data={cur} isAlbum={false}/>
       </div>
       )
 

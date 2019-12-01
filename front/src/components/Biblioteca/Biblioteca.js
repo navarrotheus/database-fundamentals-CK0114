@@ -31,16 +31,30 @@ export default class Biblioteca extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://localhost:3333/albums/${this.props.idList}`)
-    .then(response => response.json())
-    .then(responseJson => {
-      this.setState({
-        listMusic: responseJson
+    if(this.props.typeList === "Biblioteca"){
+      fetch(`https://localhost:3333/biblioteca`)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          listMusic: responseJson
+        })
+      })
+      .catch(error => {
+        console.error(error);
       });
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    }
+    else{
+      fetch(`https://localhost:3333/${this.props.typeList}/${this.props.idList}`)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          listMusic: responseJson
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    }
   }
 
   render(){
@@ -68,17 +82,23 @@ export default class Biblioteca extends React.Component {
     ]
         
     let musicas = myMusics.map(cur => <MusicBar data={cur}/>)
+    let nome = this.props.typeList
+
+    let info = <button className="b-btnDesc" onClick={this.handleOpenModal}>
+                <p>+info</p>
+              </button>
+    
+    if (this.props.typeList === "Biblioteca"){
+      info = <></>
+    }
 
     return(
       <div className="alinhar b-background">
-         <h1>{this.props.idList} </h1>
         <section className="b-container" >
           <section className="b-titulo-container">
-            <h1 className="b-titulo">{myAlbum[0]}</h1>
+          <h1 className="b-titulo">{nome}</h1>
           </section>
-          <button className="b-btnDesc" onClick={this.handleOpenModal}>
-              <p>+info</p>
-          </button>
+          {info}
           <ReactModal
             isOpen={this.state.showModal}
             contentLabel="List Description"

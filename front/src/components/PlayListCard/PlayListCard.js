@@ -38,8 +38,7 @@ export default class PlayListCard extends React.Component {
           <div className="plc-list-name-container">
             <Link className="plc-list-name" to={`/${typeList}/${idList}`} >{this.props.data["nome"]}</Link>
           </div>
-        
-         
+
         </section>
       </section>
     )

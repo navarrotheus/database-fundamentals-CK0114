@@ -9,11 +9,11 @@ import Home from "../Home/Home"
 import Biblioteca from "../Biblioteca/Biblioteca"
 import Search from "../Search/Search"
 import Composer from "../Composer/Composer"
-
+import PlayList from "../PlayList/PlayList"
 
 function teste(value) {
   switch (value.params.thing) {
-    case "Album" || "PlayList":
+    case "Album":
       return <Biblioteca idList={value.params.id} typeList={value.params.thing}/>
     case "PlayList":
       return <Biblioteca idList={value.params.id} typeList={value.params.thing}/>
@@ -21,8 +21,12 @@ function teste(value) {
       return <Composer type={value.params.thing} name={value.params.id}/>
     case "Interprete":
       return <Composer type={value.params.thing} name={value.params.id}/>
-
   }
+
+}
+
+function faixas() {
+  return <Biblioteca idList={0} typeList={"Biblioteca"}/>
 
 }
 
@@ -36,9 +40,9 @@ class Router extends Component {
     return (
       <Switch>
         <Route path="/Home" component={Home} />
-        <Route path="/Biblioteca" component={Composer} />
         <Route path="/Pesquisar" component={Search} />
-
+        <Route path="/Biblioteca" component={faixas} />
+        <Route path="/Playlists" component={PlayList} />
         <Route path="/:thing/:id" component={Child} />
       </Switch>
       
