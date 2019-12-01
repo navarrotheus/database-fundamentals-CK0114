@@ -13,9 +13,12 @@
     "create5": "node src/database/migrations/create-5.js",
     "create6": "node src/database/migrations/create-6.js",
     "create8a": "node src/database/migrations/create-8a.js",
+    "create8b": "node src/database/migrations/create-8b.js",
+    "create8c": "node src/database/migrations/create-8c.js",
     "create8d": "node src/database/migrations/create-8d.js",
     "createviiib": "node src/database/migrations/create-viiib.js",
-    "createAllRestrictions": "yarn createviiib && yarn create3b && yarn create3a && yarn createie && yarn create6 && yarn create5 && yarn create8a",
+    "createAllRestrictions": "yarn createviiib && yarn create3b && yarn create3a && yarn createie && yarn create6 && yarn create5 && yarn create8a && yarn create8d && yarn create8b && yarn create8c",
+    "createAll": "yarn createTables && yarn createAllRestrictions",
     "deleteSchema": "node src/database/migrations/drop-schema-public.js",
     "seedDb": "node src/database/seeds/seed-database-1.js"
   },
