@@ -59,30 +59,31 @@ export default class Biblioteca extends React.Component {
   }
 
   render(){
-
-    let myMusics = this.state.listMusic;
-    console.log(myMusics);
-    /*[
+    /* let myAlbum = [
       "Nome do Album1", "ID Album1", "ID Gravadora1", "Descrição1",
       "Data de compra1", "Tipo de compra1", "Preço da compra1" 
     ]*/
 
     let myMusicsgg = [
-      [{
+      {
         id_faixa: 1,
         nome_faixa: "teste",
         tipo_faixa: "DDD"
-      }],
-      [{
+      },
+      {
         id_faixa: 2,
         nome_faixa: "teste2",
         tipo_faixa: "DDx"
-      }],      [{
+      },      
+      {
         id_faixa: 3,
         nome_faixa: "teste3",
         tipo_faixa: "DDz"
-      }],
+      },
     ]
+
+    let myMusics = myMusicsgg //this.state.listMusic;
+    console.log(myMusics);
         
     let musicas = myMusics.map(cur => <MusicBar data={cur}/>)
     let nome = this.props.typeList
@@ -107,6 +108,7 @@ export default class Biblioteca extends React.Component {
             contentLabel="List Description"
             onRequestClose={this.handleCloseModal}
             className="b-modal-container"
+            overlayClassName="modal-overlay"
           >
             <button className="b-modal-closetbtn" onClick={this.handleCloseModal}>X</button>
             <LibraryDescription data={0} type={this.props.typeList}/>

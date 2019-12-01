@@ -14,77 +14,74 @@ import "./LibraryDescription.css"
 
 class LibraryDescription extends Component {
   
+  state = {
+    myPlayList: []
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:3333/${"tipo"}/infos`, "id aq")
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        myPlayList: responseJson
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+
+  removePlayLis() {
+    let id = "ID AQ"
+    let nome = "nome aq"
+    fetch(`http://localhost:3333//UMA ROTA AQ`, id)
+    .then(response => response.json())
+    .then(responseJson => {
+      alert('A playlist' + nome + " foi criada com sucesso");
+        console.log(id)
+    })
+    .catch(error => {
+      console.log("Erro de api")
+      console.error(error);
+    });
+  }
+
+  myLabel(quest, answer) {
+    return <div className="libDesc-label">
+              <p className="libDesc-question" >{quest} </p>
+              <p className="libDesc-answer">{answer}</p>
+          </div>
+  }
+
   render() {
 
     let desc = 
       <div className="libDesc-container">
-          <div className="libDesc-label">
-              <p className="libDesc-question" >Nome da PlayList: </p>
-              <p className="libDesc-answer">{this.props.data[0]}</p>
-          </div>
-          <div className="libDesc-label">
-                  <p className="libDesc-question" >Data de Criação: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-          </div>
-          <div className="libDesc-label">
-                  <p className="libDesc-question" >Tempo Total: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-              </div>
+        {this.myLabel("Nome da PlayList:", this.props.data[0] )}
+        {this.myLabel("Data de Criação:", this.props.data[0] )}
+        {this.myLabel("Tempo Total:", this.props.data[0] )}
+        <button className="liDesc-myButton" onClick={this.removePlayLis}>Escluir</button>
       </div>
 
     if(this.props.type === "Album"){
-      desc =<div className="libDesc-container"> 
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >Nome do Album: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-              </div>
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >ID do Album: </p>
-                  <p className="libDesc-answer">{this.props.data[1]}</p>
-              </div>
-              <div className="libDesc-label">
-                    <p className="libDesc-question" >ID Gravadora: </p>
-                    <p className="libDesc-answer">{this.props.data[2]}</p>
-              </div>
-              <div className="libDesc-gravadora">
-                <div className="libDesc-label">
-                  <p className="libDesc-question" > Nome da Gravadora: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-                </div>
-                <div className="libDesc-label">
-                  <p className="libDesc-question" >Homepage Gravadora: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-                </div>
-                <div className="libDesc-label">
-                  <p className="libDesc-question" > CEP Gravadora: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-                </div>
-                <div className="libDesc-label">
-                  <p className="libDesc-question" >Endereço: </p>
-                  <p className="libDesc-answer">{"Rua"} {"Numero"} </p>
-                </div>
-                <div className="libDesc-label">
-                  <p className="libDesc-question" >Telefones Gravadora: </p>
-                  <p className="libDesc-answer">{this.props.data[0]}</p>
-                </div>
-              </div>
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >Descrição: </p>
-                  <p className="libDesc-answer">{this.props.data[3]}</p>
-              </div>
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >Data de compra: </p>
-                  <p className="libDesc-answer">{this.props.data[4]}</p>
-              </div>
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >Tipo de compra: </p>
-                  <p className="libDesc-answer">{this.props.data[5]}</p>
-              </div>
-              <div className="libDesc-label">
-                  <p className="libDesc-question" >Preço da compra: </p>
-                  <p className="libDesc-answer">{this.props.data[6]}</p>
-              </div>
-            </div>
+      desc =<div className="libDesc-container">
+        {this.myLabel("Nome do Album:", this.props.data[0])}
+        {this.myLabel("ID do Album:", this.props.data[1])}
+        {this.myLabel("ID Gravadora:", this.props.data[2])}
+        <div className="libDesc-gravadora">
+          {this.myLabel("Nome da Gravadora:", this.props.data[0])}
+          {this.myLabel("Homepage Gravadora:", this.props.data[0])}
+          {this.myLabel("CEP Gravadora:", this.props.data[0])}
+          {this.myLabel("Endereço:", "Rua Numero" )}
+          {this.myLabel("Telefones:", this.props.data[0])}
+          {this.myLabel("teste", this.props.data[0])}
+          {this.myLabel("teste", this.props.data[0])}
+        </div>
+        {this.myLabel("Descrição:", this.props.data[3])}
+        {this.myLabel("Data de compra:", this.props.data[4])}
+        {this.myLabel("Tipo de compra:", this.props.data[5])}
+        {this.myLabel("Preço da compra:", this.props.data[6])}
+      </div>
     }
 
     return (

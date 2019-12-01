@@ -7,6 +7,7 @@ import {
   Link,
 } from "react-router-dom";
 import MusicDescription from "./MusicDescription/MusicDescription"
+import MusicOptions from "./MusicOptions/MusicOptions"
 
 import Image from "../../images/default.jpg"
 import MusicIcon from "../../images/MusicBar/music-icon.png"
@@ -28,10 +29,14 @@ export default class MusicBar extends React.Component {
     super();
     this.state = {
       showModal: false,
+      showConfig: false,
     };
     
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+
+    this.openConfig = this.openConfig.bind(this);
+    this.closeConfig = this.closeConfig.bind(this);
   }
   
   handleOpenModal () {
@@ -40,6 +45,13 @@ export default class MusicBar extends React.Component {
   
   handleCloseModal () {
     this.setState({ showModal: false });
+  }
+
+  openConfig() {
+    this.setState({showConfig: true})
+  }
+  closeConfig() {
+    this.setState({showConfig: false})
   }
 
   render() {
@@ -70,7 +82,7 @@ export default class MusicBar extends React.Component {
             <p className="mb-nome">{musica["nome_faixa"]}</p>
             {/*<p className="mb-nome mb-autor"> {name}</p>*/}
           </div>
-          <a href="./" className="mb-tail">
+          <a onClick={this.openConfig} className="mb-tail">
             <img className="mb-config" src={Config}/>
           </a>
           <p className="mb-gravadora">{musica["tipo_faixa"]}</p>
@@ -80,9 +92,21 @@ export default class MusicBar extends React.Component {
           contentLabel="Music Description"
           onRequestClose={this.handleCloseModal}
           className="mb-modal-container"
+          overlayClassName="modal-overlay"
+
         >
           <button onClick={this.handleCloseModal} className="mb-modal-closetbtn">X</button>
           <MusicDescription data={musica}/>
+        </ReactModal>
+        <ReactModal
+          isOpen={this.state.showConfig}
+          contentLabel="Music Description"
+          onRequestClose={this.closeConfig}
+          className="mb-modal-container"
+          overlayClassName="modal-overlay"
+        >
+          <button onClick={this.closeConfig} className="mb-modal-closetbtn">X</button>
+          <MusicOptions nameMusic={"nome aq"} />
         </ReactModal>
       </div>
     )

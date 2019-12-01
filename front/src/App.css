@@ -33,3 +33,24 @@ a {
   background: #00d95f; 
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+
+.modal-overlay {
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgb(61, 16, 44) ,rgb(9, 17, 43), #6b0404);
+    z-index: 2;
+}
+
+.b-modal-container{
+  position: absolute;
+  top: 40px;
+  left: 500px;
+  right: 40px;
+  bottom: 40px;
+  width: 600px;
+  background-color: rgb(34, 12, 12);
+  outline-width: 0px;
+}

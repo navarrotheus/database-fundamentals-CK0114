@@ -98,6 +98,8 @@ export default class PlayList extends React.Component {
             contentLabel="List Description"
             onRequestClose={this.handleCloseModal}
             className="b-modal-container addPlayList-modal"
+            overlayClassName="modal-overlay"
+
           >
             <button className="b-modal-closetbtn" onClick={this.handleCloseModal}>X</button>
             <AddPlayList/>

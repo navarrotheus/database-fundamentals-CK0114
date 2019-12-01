@@ -25,15 +25,7 @@
   color: white
 }
 
-.b-modal-container{
-  position: absolute;
-  top: 40px;
-  left: 500px;
-  right: 40px;
-  bottom: 40px;
-  width: 600px;
-  background-color: rgb(34, 12, 12);
-}
+
 
 .b-btnDesc{
   font-size: 15px;

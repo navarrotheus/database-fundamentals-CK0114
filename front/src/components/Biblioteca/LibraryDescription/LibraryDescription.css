@@ -29,3 +29,28 @@
 .libDesc-gravadora{
   margin-left: 20px;
 }
+
+.liDesc-myButton {
+  margin-top: 20px;
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:linear-gradient(#00d95f 80%);
+	background-color:#00d95f;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#700715;
+  font-size:18px;
+  font-weight: 600;
+	padding:10px 25px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+}
+.liDesc-myButton:hover {
+  background:linear-gradient(to bottom, #00d95f 5%, #c90909 100%);
+  color: white;
+}
+.liDesc-myButton:active {
+	position:relative;
+	top:1px;
+}

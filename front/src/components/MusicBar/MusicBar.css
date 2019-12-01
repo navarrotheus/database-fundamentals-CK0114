@@ -48,6 +48,7 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  background-color: none;
 }
 
 .mb-config {
