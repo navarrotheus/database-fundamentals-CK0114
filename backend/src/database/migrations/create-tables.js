@@ -34,7 +34,7 @@ async function createTables() {
     id serial primary key,
     nome varchar(50) not null,
     data_criacao timestamp default current_timestamp,
-    tempo_total time
+    tempo_total time default '00:00:00'
   );`);
 
   await db.query(`create table Composicao (

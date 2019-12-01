@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create1e() {
+async function createie() {
   await db.connect();
 
   await db.query(`create function media_albums_ddd() returns double precision as $$
@@ -24,7 +24,7 @@ async function create1e() {
 
   await db.end();
 
-  console.log('Restrição 1e criada com sucesso');
+  console.log('Restrição ie criada com sucesso');
 }
 
-create1e();
+createie();
