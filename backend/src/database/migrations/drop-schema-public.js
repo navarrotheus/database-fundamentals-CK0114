@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function dropTables() {
+async function dropSchema() {
   await db.connect();
 
   await db.query('drop schema public cascade;');
@@ -12,4 +12,4 @@ async function dropTables() {
   console.log('Schema public removido e criado novamente');
 }
 
-dropTables();
+dropSchema();
