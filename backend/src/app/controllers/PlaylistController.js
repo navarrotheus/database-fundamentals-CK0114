@@ -25,7 +25,7 @@ class AlbumController {
   }
 
   async storeFaixaPlaylist(req, res) {
-    const { rows } = await playlist.addFaixaPlaylist(req.body.id_faixa, req.body.id_playlist);
+    const { rows } = await playlist.addFaixaPlaylist(req.params.idplaylist, req.params.idfaixa);
 
     return res.json(rows);
   }
@@ -37,7 +37,7 @@ class AlbumController {
   }
 
   async deleteFaixaPlaylist(req, res) {
-    const { rows } = await playlist.removeFaixaPlaylist(req.body.id_faixa, req.body.id_playlist);
+    const { rows } = await playlist.removeFaixaPlaylist(req.params.idplaylist, req.params.idfaixa);
 
     return res.json(rows);
   }

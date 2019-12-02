@@ -16,8 +16,8 @@ routes.get('/playlists/:id', PlaylistController.indexFaixasPlaylist); // mostrar
 routes.post('/playlists/:nome', PlaylistController.storePlaylist); // criar playlist com tal nome
 routes.delete('/playlists/:id', PlaylistController.delete); // deletar playlist com tal id
 
-routes.post('/playlists', PlaylistController.storeFaixaPlaylist); // inserir faixa na playlist
-routes.delete('/playlists', PlaylistController.deleteFaixaPlaylist); // remover faixa da playlist
+routes.post('/playlists/:idplaylist/:idfaixa', PlaylistController.storeFaixaPlaylist); // inserir faixa na playlist
+routes.delete('/playlists/:idplaylist/:idfaixa', PlaylistController.deleteFaixaPlaylist); // remover faixa da playlist
 
 routes.get('/biblioteca', FaixaController.index);
 
