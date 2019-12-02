@@ -1,9 +1,4 @@
-const db = require('../client');
-
-async function create3a() {
-  await db.connect();
-
-  await db.query(`create function qnt_faixas_barroco_album(albumid integer) returns bigint as $$
+create function qnt_faixas_barroco_album(albumid integer) returns bigint as $$
   begin
   return (select count(pm.descricao) from periodo_musical pm
 join compositor c on pm.id=c.periodo_id
@@ -12,15 +7,16 @@ join faixa f on f.id=fc.faixa_id
 join album a on a.id=f.album_id
 where pm.descricao ILIKE 'Barroco' and a.id=albumid);
   end; $$
-language plpgsql;`);
+language plpgsql;
 
-  await db.query(`create function qnt_faixas_ddd_album(albumid integer) returns bigint as $$
+
+create function qnt_faixas_ddd_album(albumid integer) returns bigint as $$
   begin
   return (select count(f.album_id) from album a join faixa f on a.id=f.album_id where tipo_gravacao ILIKE 'DDD' and f.album_id=albumid);
   end; $$
-  language plpgsql;`);
-
-  await db.query(`create function check_3a() returns trigger as $$
+  language plpgsql;
+  
+create function check_3a() returns trigger as $$
   begin
   if (select qnt_faixas_album(a.id)=qnt_faixas_barroco_album(a.id) and qnt_faixas_album(a.id)!=qnt_faixas_ddd_album(a.id)
 	  from faixa f join faixa_compositor fc on f.id=fc.faixa_id
@@ -31,15 +27,8 @@ language plpgsql;`);
   end if;
   return new;
   end; $$
-  language plpgsql;`);
-
-  await db.query(`create trigger check_3a
+  language plpgsql;
+  
+create trigger check_3a
   before insert or update on faixa_compositor
-  for each row execute procedure check_3a();`);
-
-  await db.end();
-
-  console.log('Restrição 3a criada com sucesso');
-}
-
-create3a();
+  for each row execute procedure check_3a();
