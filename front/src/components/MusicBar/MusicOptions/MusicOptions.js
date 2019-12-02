@@ -69,7 +69,6 @@ export default class MusicOptions extends React.Component {
         console.error(error);
       })
       document.location.reload(true);
-
     }
  
     let aaaa = <></> 
