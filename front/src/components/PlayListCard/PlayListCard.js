@@ -11,15 +11,6 @@ export default class PlayListCard extends React.Component {
 
   render() {
 
-    //Album
-    // data[0]: ID da 
-    // data[1]: Nome do Album
-
-    // data[~]: Interprestes (por enquanto não vamos mostrar os interpretes)
-    //PlayList
-    // data[0]: Nome da PList
-    // data[1]: Id PList
-
     let typeList = "playlists"
     let idList = this.props.data['id']
     let nomeList = this.props.data["nome"]

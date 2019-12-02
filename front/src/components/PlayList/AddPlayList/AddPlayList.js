@@ -23,17 +23,22 @@ export default class AddPlayList extends React.Component {
 
   addPlayList(event) {
     const nome = this.state.value
+    console.log(nome)
     event.preventDefault();
-    fetch(`http://localhost:3333//playlists/info/${nome}`, nome)
+    fetch(`http://localhost:3333/playlists/${nome}`, {
+      method: 'post',
+    })
     .then(response => response.json())
     .then(responseJson => {
-      alert('A playlist' + nome + " foi criada com sucesso");
+      alert('A playlist ' + nome + " foi criada com sucesso");
         console.log(nome)
     })
     .catch(error => {
       console.log("Erro de api")
       console.error(error);
     });
+    document.location.reload(true);
+
   }
 
   render() {
@@ -44,19 +49,6 @@ export default class AddPlayList extends React.Component {
         <label className="addPlayList-label"> Qual o nome da PlayList: </label>
         <input ref="nomePL" id="addPlayList-input" type="text" onChange={this.onChange} />
         <button ref="addPlaylist-button" className="addPlayList-button" onClick={this.addPlayList} >Criar</button>
-        <label className="addPlayList-label"> Adicione músicas </label>
-        <div className="addPlayList-container-listMusic">
-          <div>
-            teste
-          </div>
-          <div>
-            <select >
-              <option value=""> Selecione </option>
-              <option> 1</option>
-            </select>              
-          </div>
-        </div>
-          
       </form>
     )
   }

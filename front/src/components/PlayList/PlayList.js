@@ -31,7 +31,7 @@ export default class PlayList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://localhost:3333/playlist')
+    fetch('http://localhost:3333/playlists')
     .then(response => response.json())
     .then(responseJson => {
       this.setState({
@@ -45,22 +45,7 @@ export default class PlayList extends React.Component {
 
   render(){
 
-    const teste = [
-      {
-        "id": 3,
-        "nome": "MinhaPlaylist"
-      },
-      {
-        "id": 4,
-        "nome": "rgrtr"
-      },
-      {
-        "id": 5,
-        "nome": "rgaartr"
-      },
-    ]
-
-    let requestPlaylist = teste //this.state.playlist
+    let requestPlaylist = this.state.playlist
 
     let myPlayList = requestPlaylist.map(cur => 
       <div className="home-pl">

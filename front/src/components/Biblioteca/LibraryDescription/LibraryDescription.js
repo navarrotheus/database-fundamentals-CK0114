@@ -15,33 +15,31 @@ import "./LibraryDescription.css"
 class LibraryDescription extends Component {
   
   state = {
-    myPlayList: []
+    myPlayList: [],
+    nome: "",
+    data: "",
+    duracao: "",
+    id: 0
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3333/${"tipo"}/infos`, "id aq")
+    const typeList = this.props.typeList
+    const id = this.props.idList
+    console.log("lllllllllllllllll")
+    console.log(id)
+    console.log(typeList)
+    fetch(`http://localhost:3333/${typeList}/infos/${id}`)
     .then(response => response.json())
     .then(responseJson => {
       this.setState({
-        myPlayList: responseJson
+        myPlayList: responseJson[0],
+        nome: responseJson[0]["nome_playlist"],
+        data: responseJson[0]["data_playlist"],
+        duracao: responseJson[0]["tempo_playlist"],
       });
+      console.log(this.state.myPlayList)
     })
     .catch(error => {
-      console.error(error);
-    });
-  }
-
-  removePlayLis() {
-    let id = "ID AQ"
-    let nome = "nome aq"
-    fetch(`http://localhost:3333//UMA ROTA AQ`, id)
-    .then(response => response.json())
-    .then(responseJson => {
-      alert('A playlist' + nome + " foi criada com sucesso");
-        console.log(id)
-    })
-    .catch(error => {
-      console.log("Erro de api")
       console.error(error);
     });
   }
@@ -55,15 +53,35 @@ class LibraryDescription extends Component {
 
   render() {
 
-    let desc = 
-      <div className="libDesc-container">
-        {this.myLabel("Nome da PlayList:", this.props.data[0] )}
-        {this.myLabel("Data de Criação:", this.props.data[0] )}
-        {this.myLabel("Tempo Total:", this.props.data[0] )}
-        <button className="liDesc-myButton" onClick={this.removePlayLis}>Escluir</button>
-      </div>
+    let delet = () => {
+      const idPl =this.props.idList
+      console.log("KKKKKKKKKKKKKKKkk")
+      console.log(idPl)
+      fetch(`http://localhost:3333/playlists/${idPl}`, {
+        method: 'delete'
+      })
+      .then(response => response.json())
+      .then(responseJson => {
+        alert("removido com sucesspo");
+          console.log(idPl)
+      })
+      .catch(error => {
+        console.log("Erro de api")
+        console.error(error);
+      });
 
-    if(this.props.type === "Album"){
+    }
+
+     let desc = 
+        <div className="libDesc-container">
+          {this.myLabel("Nome da PlayList:", this.state.nome )}
+          {this.myLabel("Data de Criação:", this.state.data )}
+          {this.myLabel("Tempo Total:", this.state.duracao )}
+          <button className="liDesc-myButton" onClick={delet}>Excluir</button>
+        </div>
+
+    if(this.props.typeList === "albums"){
+      console.log(this.state.myPlayList)
       desc =<div className="libDesc-container">
         {this.myLabel("Nome do Album:", this.props.data[0])}
         {this.myLabel("ID do Album:", this.props.data[1])}

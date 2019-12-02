@@ -7,34 +7,26 @@ import "./MusicOptions.css"
 
 import Image from "../../../images/default.jpg"
 
-// data[0]: Nome da Musica
-// data[1]: Interpretes
-// data[2]: Autores
-// data[3]: Descrição
-// data[4]: Gravadora
-// data[5]: Periodo Musical
-
-
 export default class MusicOptions extends React.Component {
-
 
   constructor(props) {
     super(props);
     this.state = {
       myPlayLists: [],
+      myMusicId: "",
       myIdPL: "",
+      idPLatual: ""
     };
 
     this.onChange = this.onChange.bind(this);
-    this.addMusic = this.addMusic.bind(this);
   }
 
   componentDidMount() {
-    fetch(`https://localhost:3333/albums/${this.props.idList}`)
+    fetch(`http://localhost:3333/playlists`)
     .then(response => response.json())
     .then(responseJson => {
       this.setState({
-        myMusic: responseJson
+        myPlayLists: responseJson,
       });
     })
     .catch(error => {
@@ -43,37 +35,55 @@ export default class MusicOptions extends React.Component {
   }
 
   onChange(event) {
-    console.log(this.state.myIdPL)
+    console.log("this.state.myIdPL")
     this.setState({myIdPL: event.target.value});
     console.log(this.state.myIdPL)
   }
 
-  addMusic(event) {
-    const id = this.state.myIdPL
-    console.log(id)
-    fetch(`http://localhost:3333//playlists/info/${"nome"}`, id)
-    .then(response => response.json())
-    .then(responseJson => {
-      alert('A musica' + "nome" + " foi adicionada com sucesso");
-        console.log("nome")
-    })
-    .catch(error => {
-      console.log("Erro de api" + id)
-      console.error(error);
-    });
-  }
-
   render() {
 
-    let play = [ 
-      {id:1, nome: "algum aq1"},
-      {id:2, nome: "algum aq2"},
-      {id:3, nome: "algum aq3"},
-    ]
+    function addMusic(musicId, plId) {
+      console.log("aqaqaq")
+      console.log(plId)
+      console.log(musicId)
+      fetch(`http://localhost:3333/playlists/${musicId}/${plId}`, {
+        method: 'post'
+      })
+      .then(response => response.json())
+      .catch(error => {
+        console.log("Erro de api")
+        console.error(error);
+      })
+      document.location.reload(true);
+
+    }
+
+    function removeMusic(musicId, plId) {
+      console.log("=> " + musicId + "  " + plId + " <=")
+      fetch(`http://localhost:3333/playlists/${musicId}/${plId}`, {
+        method: 'delete'
+      })
+      .then(response => response.json())
+      .catch(error => {
+        console.log("Erro de api" + plId)
+        console.error(error);
+      })
+      document.location.reload(true);
+
+    }
+ 
+    let aaaa = <></> 
+
+    if(this.props.typeList === "playlists") {
+      aaaa =
+        <button id="er" className="liDesc-myButton" onClick={()=>removeMusic(this.props.idMusic, this.props.idList)}>remover da PlayList</button>
+    }
+
+    let play = this.state.myPlayLists 
+
 
     const result = play.map(cur => 
       <option value={cur["id"]}>
-        {/*window.alert("id:" + cur["id"] + "   Nome: " + cur["nome"]   )*/}
         {cur["nome"]}
       </option>)
 
@@ -84,8 +94,9 @@ export default class MusicOptions extends React.Component {
           <option value=""> Selecione </option>
           {result}
         </select>
-        {console.log(play)}
-        <button className="liDesc-myButton" onClick={this.addMusic}>Excluir</button>
+        {console.log(this.state)}
+        <button id="eyr" className="liDesc-myButton" onClick={()=>addMusic(this.props.idMusic,this.state.myIdPL)}>ADD</button>
+        {aaaa}
       </div>
     )
   }

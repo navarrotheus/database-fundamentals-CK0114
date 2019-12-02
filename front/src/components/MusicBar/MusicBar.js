@@ -15,14 +15,6 @@ import Play from "../../images/play-arrow-white.png"
 import Config from "../../images/MusicBar/config-icon.png"
 import Logo from "../../images/logo.png"
 
-
-// data[0]: Nome da Musica
-// data[1]: Interpretes
-// data[2]: Autores
-// data[3]: Descrição
-// data[4]: Gravadora
-// data[5]: Periodo Musical
-
 export default class MusicBar extends React.Component { 
 
   constructor () {
@@ -60,7 +52,16 @@ export default class MusicBar extends React.Component {
       //<Link className="plc-author-name" to={`/Interprete/${cur}`}> {cur} </Link>
     //)
 
+    /*
+      {
+        id_faixa: 1,
+        nome_faixa: "teste",
+        tipo_faixa: "DDD"
+      },
+    */
+
     let musica = this.props.data
+    let typeList = this.props.typeList
 
     console.log("testes =================")
     console.log(musica)
@@ -74,7 +75,7 @@ export default class MusicBar extends React.Component {
               <img className="mb-icon " src={MusicIcon}/>
               <img className="mb-icon mb-play" src={Play}/>
             </a>
-            <button className="mb-btnDesc" onClick={this.handleOpenModal}>
+            <button className="mb-btnDesc" onClick={"this.handleOpenModal"}>
               <img className="mb-album" src={Image}/>
             </button>
           </div>
@@ -106,7 +107,8 @@ export default class MusicBar extends React.Component {
           overlayClassName="modal-overlay"
         >
           <button onClick={this.closeConfig} className="mb-modal-closetbtn">X</button>
-          <MusicOptions nameMusic={"nome aq"} />
+          {console.log("=====> "+ this.props.idList + "<=======")}
+          <MusicOptions idList={this.props.idList} typeList={typeList} idMusic={musica["id_faixa"]} />
         </ReactModal>
       </div>
     )

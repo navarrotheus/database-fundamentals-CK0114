@@ -7,14 +7,6 @@ import "./MusicDescription.css"
 
 import Image from "../../../images/default.jpg"
 
-// data[0]: Nome da Musica
-// data[1]: Interpretes
-// data[2]: Autores
-// data[3]: Descrição
-// data[4]: Gravadora
-// data[5]: Periodo Musical
-
-
 export default class MusicDescription extends React.Component {
 
   state = {
@@ -22,7 +14,7 @@ export default class MusicDescription extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://localhost:3333/albums/${this.props.idList}`)
+    fetch(`http://localhost:3333/albums/${this.props.idList}`)
     .then(response => response.json())
     .then(responseJson => {
       this.setState({

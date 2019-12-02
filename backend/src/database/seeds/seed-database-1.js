@@ -40,7 +40,7 @@ async function seedTables() {
   await db.query(`insert into Faixa (album_id, composicao_id, descricao, tipo_gravacao, tempo_execucao, numero_faixa) values
     ( 1 , 1 , 'Wanna Be Startin Somethin', 'ADD', '00:06:03', 1 ),
     ( 1 , 2 , 'Thriller', 'DDD', '00:05:57', 2 ),
-    ( 1 , 3 , 'Beat It', 'ADD', '00:04:18', 3 ),
+    ( 1 , 4 , 'Beat It', 'ADD', '00:04:18', 3 ),
     ( 1 , 4 , 'Billie Jean', 'ADD', '00:04:54', 4 ),
     ( 6 , 1 , 'Cry Baby', 'DDD', '00:04:07', 1 ),
     ( 6 , 1 , 'Mess Around', 'DDD', '00:02:53', 2 ),
@@ -113,7 +113,8 @@ async function seedTables() {
 
   await db.query(`insert into Faixa_Compositor (faixa_id, compositor_id) values
     ( 1 , 5 ),
-    ( 2 , 3 ),
+    ( 3 , 3 ),
+    ( 4 , 3 ),
     ( 3 , 1 ),
     ( 4 , 2 ),
     ( 5 , 4 ),
