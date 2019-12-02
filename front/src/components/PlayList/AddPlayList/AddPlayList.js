@@ -7,7 +7,11 @@ import "./AddPlayList.css"
 export default class AddPlayList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+      listAlbum: [],
+    
+    };
 
     this.onChange = this.onChange.bind(this);
     this.addPlayList = this.addPlayList.bind(this);
@@ -40,6 +44,19 @@ export default class AddPlayList extends React.Component {
         <label className="addPlayList-label"> Qual o nome da PlayList: </label>
         <input ref="nomePL" id="addPlayList-input" type="text" onChange={this.onChange} />
         <button ref="addPlaylist-button" className="addPlayList-button" onClick={this.addPlayList} >Criar</button>
+        <label className="addPlayList-label"> Adicione músicas </label>
+        <div className="addPlayList-container-listMusic">
+          <div>
+            teste
+          </div>
+          <div>
+            <select >
+              <option value=""> Selecione </option>
+              <option> 1</option>
+            </select>              
+          </div>
+        </div>
+          
       </form>
     )
   }

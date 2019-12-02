@@ -1,7 +1,7 @@
 .addPlayList-modal{
-  top:20%;
+  top:10%;
   margin-top:0px;
-  height: 150px;
+  height: 300px;
 }
 
 .addPlayList-container{
@@ -46,4 +46,9 @@
 .addPlayList-button:hover {
   background: #a00000;
   color: white;
+}
+
+.addPlayList-container-listMusic{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
