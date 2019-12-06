@@ -34,8 +34,14 @@ Criar um .env com as variáveis ambientes correspondentes [ver .env.example](htt
 * Criar tabelas no banco:
   > yarn createTables
 
-* Deletar tabelas no banco:
-  > yarn deleteTables
+* Criar triggers, funções e view do banco:
+  > yarn createRestrictions
   
-* Alimentar o banco de dados:
+* Criar tabelas e restrições:
+  > yarn createAll
+  
+* Alimentar banco com alguns dados genéricos:
   > yarn seedDb
+
+* Deletar todas tabelas:
+  > yarn deleteSchema
