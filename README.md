@@ -9,30 +9,6 @@
    <a href="#bar_chart-dr">DR</a>
 </p>
 
-## :bookmark_tabs: Instruções
-1. Rodando o servidor backend:
-   1. Entre na pasta backend
-      > cd backend
-   1. Instale as dependências
-      > yarn
-      ou
-      > npm install
-   1. Criar o arquivo .env com as variáveis ambientes para realizar a conexão com o banco [ver .env.example](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/backend/backend/.env.example)
-   1. Rodar o servidor
-      > yarn dev
-   1. Para criar as tabelas & restrições do banco
-      > yarn createAll
-1. Rodando o frontend:
-   1. Entre na pasta frontend
-      > cd ../frontend
-   1. Instale as dependências
-      > yarn
-      ou
-      > npm install
-      
-   1. Inicie a aplicação
-      > yarn start
-
 ## :memo: Especificação de requisitos
 Um colecionador de música clássica resolveu utilizar a tecnologia de banco de dados
 para implementar uma versão personalizada do Spotify, o **SpotPer**. Para tanto,
@@ -107,6 +83,30 @@ uma faixa composta pelo compositor Dvorack;
 existentes;
    1. Listar playlists, cujas faixas (todas) têm tipo de composição “Concerto” e
 período “Barroco”.
+
+## :bookmark_tabs: Instruções
+1. Rodando o servidor backend:
+   1. Entre na pasta backend
+      > cd backend
+   1. Instale as dependências
+      > yarn
+      ou
+      > npm install
+   1. Criar o arquivo .env com as variáveis ambientes para realizar a conexão com o banco [ver .env.example](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/backend/backend/.env.example)
+   1. Rodar o servidor
+      > yarn dev
+   1. Para criar as tabelas & restrições do banco
+      > yarn createAll
+1. Rodando o frontend:
+   1. Entre na pasta frontend
+      > cd ../frontend
+   1. Instale as dependências
+      > yarn
+      ou
+      > npm install
+      
+   1. Inicie a aplicação
+      > yarn start
 
 ## :bar_chart: DER
 ![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
