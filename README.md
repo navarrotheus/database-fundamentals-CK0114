@@ -53,7 +53,35 @@ Uma playlist terá como propriedades:
    1. Código identificador, nome, data de criação, tempo total de execução;
    1. Para cada faixa de uma playlist, tem-se a data da última vez que foi tocada
 e o número de vezes que foi tocada.
-  
+1. Defina as seguintes restrições:
+  1. Um álbum, com faixas de músicas do período barroco, só pode ser adquirido,
+caso o tipo de gravação seja DDD.
+  1. Um álbum não pode ter mais que 64 faixas (músicas).
+  1. No caso de remoção de um álbum do banco de dados, todas as suas faixas
+devem ser removidas. Lembre-se que faixas podem apresentar, por sua vez,
+outras associações.
+1. Criar uma visão materializada que tem como atributos o nome da playlist e a
+quantidade de álbuns que a compõem.
+1. Defina uma função que tem como parâmetro de entrada o nome (ou parte do)
+nome do compositor e o parâmetro de saída todos os álbuns com obras
+compostas pelo compositor.
+1. Implemente uma aplicação que implementa as seguintes
+funcionalidades:
+  1. Criação de playlists no banco de dados. Esta função deve mostrar todos os
+álbuns existentes. O usuário pode, assim, escolher o(s) álbum(ns) e quais
+faixas destes que devem compor a playlist.
+  1. Manutenção de playlists. Esta funcionalidade deve mostrar todas as playlists
+existentes. Ao escolha uma playlist, a função deve permitir a remoção de
+músicas existentes e a inserção de novas músicas na playlist escolhida.
+1. Especifique em SQL as seguintes consultas sobre o banco de dados:
+  1. Listar os álbum com preço de compra maior que a média de preços de compra
+de todos os álbuns.
+  1. Listar nome da gravadora com maior número de playlists que possuem pelo
+uma faixa composta pelo compositor Dvorack.
+  1. Listar nome do compositor com maior número de faixas nas playlists
+existentes.
+  1. Listar playlists, cujas faixas (todas) têm tipo de composição “Concerto” e
+período “Barroco”.
 
 ## :bar_chart: DER
 ![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
