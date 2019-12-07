@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create8a() {
+async function create13i() {
   await db.connect();
 
   await db.query(`create function media_preco_albums() returns double precision as $$
@@ -17,7 +17,7 @@ async function create8a() {
 
   await db.end();
 
-  console.log('Materialized view 8a criada com sucesso');
+  console.log('Materialized view 13i criada com sucesso');
 }
 
-create8a();
+create13i();

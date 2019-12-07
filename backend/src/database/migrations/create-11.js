@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create6() {
+async function create11() {
   await db.connect();
 
   await db.query(`create function nome_albums_compositor(var_nome varchar(100)) returns table (album_id integer, nome varchar(50)) as $$
@@ -11,7 +11,7 @@ async function create6() {
 
   await db.end();
 
-  console.log('Funcao 6 criada com sucesso');
+  console.log('Funcao 11 criada com sucesso');
 }
 
-create6();
+create11();

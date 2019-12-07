@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create3b() {
+async function create9i() {
   await db.connect();
 
   await db.query(`create function qnt_faixas_album(faixa_album_id integer) returns bigint as $$
@@ -9,7 +9,7 @@ async function create3b() {
   end; $$
 language plpgsql;`);
 
-  await db.query(`create function check_3b() returns trigger as $$
+  await db.query(`create function check_9i() returns trigger as $$
 	begin
 	if (qnt_faixas_album(new.album_id) >= 64) then
 		raise exception 'Um álbum não pode ter mais que 64 faixas (músicas).';
@@ -18,13 +18,13 @@ language plpgsql;`);
 	end; $$
   language plpgsql;`);
   
-  await db.query(`create trigger check_3b
+  await db.query(`create trigger check_9i
   before insert or update on faixa
-  for each row execute procedure check_3b();`);
+  for each row execute procedure check_9i();`);
 
   await db.end();
 
-  console.log('Restrição 3b criada com sucesso');
+  console.log('Restrição 9i criada com sucesso');
 }
 
-create3b();
+create9i();

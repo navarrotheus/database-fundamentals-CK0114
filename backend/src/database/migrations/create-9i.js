@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create3a() {
+async function create9i() {
   await db.connect();
 
   await db.query(`create function qnt_faixas_barroco_album(albumid integer) returns bigint as $$
@@ -20,7 +20,7 @@ language plpgsql;`);
   end; $$
   language plpgsql;`);
 
-  await db.query(`create function check_3a() returns trigger as $$
+  await db.query(`create function check_9i() returns trigger as $$
   begin
   if (select qnt_faixas_album(a.id)=qnt_faixas_barroco_album(a.id) and qnt_faixas_album(a.id)!=qnt_faixas_ddd_album(a.id)
 	  from faixa f join faixa_compositor fc on f.id=fc.faixa_id
@@ -33,13 +33,13 @@ language plpgsql;`);
   end; $$
   language plpgsql;`);
 
-  await db.query(`create trigger check_3a
+  await db.query(`create trigger check_9i
   before insert or update on faixa_compositor
-  for each row execute procedure check_3a();`);
+  for each row execute procedure check_9i();`);
 
   await db.end();
 
-  console.log('Restrição 3a criada com sucesso');
+  console.log('Restrição 9i criada com sucesso');
 }
 
-create3a();
+create9i();

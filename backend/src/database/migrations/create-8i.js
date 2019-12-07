@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function createviiib() {
+async function create9i() {
   await db.connect();
 
   await db.query(`create function tempo_total_insert() returns trigger as $$
@@ -27,7 +27,7 @@ async function createviiib() {
 
   await db.end();
 
-  console.log('Trigger viiib criada com sucesso');
+  console.log('Trigger 9i criada com sucesso');
 }
 
-createviiib();
+create9i();

@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create5() {
+async function create10() {
   await db.connect();
 
   await db.query(
@@ -13,7 +13,7 @@ async function create5() {
 
   await db.end();
 
-  console.log('Materialized view 5 criada com sucesso');
+  console.log('Materialized view 10 criada com sucesso');
 }
 
-create5();
+create10();

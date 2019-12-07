@@ -1,6 +1,6 @@
 const db = require('../client');
 
-async function create8b() {
+async function create13ii() {
   await db.connect();
 
   await db.query(`create function qnt_faixas_dvorack_playlist(playlistid integer) returns bigint as $$
@@ -14,34 +14,34 @@ async function create8b() {
   end; $$
   language plpgsql;`);
 
-  await db.query(`create function view8b() returns varchar(100) as $$
-  declare rec_view8b record;
+  await db.query(`create function view13ii() returns varchar(100) as $$
+  declare rec_view13ii record;
       nome_gravadora_maior character varying(50);
       qnt_gravadora_maior bigint default 0;
-      cur_view8b cursor for select g.nome, count(g.id) from gravadora g
+      cur_view13ii cursor for select g.nome, count(g.id) from gravadora g
       join album a on a.gravadora_id=g.id
       join faixa f on a.id=f.album_id
       join faixa_playlist fp on fp.faixa_id=f.id
       where qnt_faixas_dvorack_playlist(fp.playlist_id) >= 1
       group by g.id;
   begin
-    open cur_view8b;
+    open cur_view13ii;
     loop
-      fetch cur_view8b into rec_view8b;
+      fetch cur_view13ii into rec_view13ii;
       exit when not found;
-      if rec_view8b.count > qnt_gravadora_maior then
-        qnt_gravadora_maior := rec_view8b.count;
-        nome_gravadora_maior := rec_view8b.nome;
+      if rec_view13ii.count > qnt_gravadora_maior then
+        qnt_gravadora_maior := rec_view13ii.count;
+        nome_gravadora_maior := rec_view13ii.nome;
       end if;
     end loop;
-    close cur_view8b;
+    close cur_view13ii;
     return nome_gravadora_maior;
   end; $$
   language plpgsql;`);
 
   await db.end();
 
-  console.log('Funcao 8b criada com sucesso');
+  console.log('Funcao 13ii criada com sucesso');
 }
 
-create8b();
+create13ii();
