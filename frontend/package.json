@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash.template": "^4.5.0",
+    "mixin-deep": "^2.0.1",
     "rc-slider": "^8.7.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-modal": "^3.11.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "react-sidebar": "^3.0.2"
+    "react-sidebar": "^3.0.2",
+    "serialize-javascript": "^2.1.1",
+    "set-value": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
