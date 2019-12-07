@@ -92,7 +92,7 @@ período “Barroco”.
       > yarn
       ou
       > npm install
-   1. Criar o arquivo .env com as variáveis ambientes para realizar a conexão com o banco [ver .env.example](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/backend/backend/.env.example)
+   1. Criar o arquivo .env com as variáveis ambientes para realizar a conexão com o banco [ver .env.example](https://github.com/navarrotheus/SpotPer/blob/backend/backend/.env.example)
    1. Rodar o servidor
       > yarn dev
    1. Para criar as tabelas & restrições do banco
@@ -109,7 +109,7 @@ período “Barroco”.
       > yarn start
 
 ## :bar_chart: DER
-![DER](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DER.jpg)
+![DER](https://github.com/navarrotheus/SpotPer/blob/master/DER.jpg)
 
 ## :bar_chart: DR
-![DR](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/master/DR.jpg)
+![DR](https://github.com/navarrotheus/SpotPer/blob/master/DR.jpg)
