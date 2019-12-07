@@ -24,7 +24,7 @@ Estou utilizando docker para rodar a aplicação
  
 ### Conexão com o banco de dados
 
-Criar um .env com as variáveis ambientes correspondentes [ver .env.example](https://github.com/navarrotheus/database-fundamentals-CK0114/blob/backend/backend/.env.example)
+Criar um .env com as variáveis ambientes correspondentes [ver .env.example](https://github.com/navarrotheus/SpotPer/blob/backend/backend/.env.example)
 
 ## Scripts
 
