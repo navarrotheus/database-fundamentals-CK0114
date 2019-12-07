@@ -97,6 +97,8 @@ período “Barroco”.
       > yarn dev
    1. Para criar as tabelas & restrições do banco
       > yarn createAll
+   1. Para alimentar o banco com alguns dados:
+      > yarn seedDb
 1. Rodando o frontend:
    1. Entre na pasta frontend
       > cd ../frontend
